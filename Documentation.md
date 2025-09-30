@@ -49,3 +49,38 @@ stog/
 ├── README.md                     # Project overview and how to use the `solvers`
 └── requirements.txt              # Python dependencies
 ```
+
+---
+
+# Library Restructuring: From Layers to Solvers
+
+## Current State (Original STG)
+- **Core**: `STGLayer` - single gating layer
+- **Approach**: User builds model manually, writes training loop
+- **Architecture**: Low-level building blocks
+
+## Target Architecture (Our Restructuring)
+- **Core**: `STGSolver` - complete algorithm implementation
+- **Approach**: Ready-to-use solvers with `fit()`/`predict()` interface
+- **Architecture**: High-level, self-contained algorithms
+
+## Why Solvers are Better
+- **Reproducibility**: Standardized training procedures
+- **Usability**: 3 lines vs 50+ lines of code
+- **Extensibility**: New algorithm = new solver class
+- **Maintainability**: All algorithm logic in one place
+
+## What We Preserve
+- Original `STGLayer` and core gating mechanisms
+- Mathematical formulations and loss functions
+- All original algorithm variants (L2+STE, Gumbel, etc.)
+
+## What Changes
+- **Interface**: Layers → Complete solvers
+- **Usage**: Manual training → `solver.fit(X, y)`
+- **Structure**: Technical layers → Feature-based organization
+
+## Expected Impact
+- Faster experimentation and benchmarking
+- Easier adoption for new users
+- Better comparability between methods
