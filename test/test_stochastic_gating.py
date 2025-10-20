@@ -1,6 +1,3 @@
-# test_stochastic_gating.py
-"""Quick test to verify all methods work correctly."""
-
 import torch
 import numpy as np
 from stochastic_gating_complete import (
