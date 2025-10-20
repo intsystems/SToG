@@ -12,9 +12,6 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-# ==================== BASE SELECTOR ====================
-
-
 class BaseFeatureSelector(nn.Module, ABC):
     """Base class for feature selection methods."""
     
@@ -38,9 +35,6 @@ class BaseFeatureSelector(nn.Module, ABC):
     def get_selected_features(self, threshold: float = 0.5) -> np.ndarray:
         probs = self.get_selection_probs()
         return (probs > threshold).cpu().numpy()
-
-
-# ==================== STG LAYER  ====================
 
 
 class STGLayer(BaseFeatureSelector):
@@ -68,9 +62,6 @@ class STGLayer(BaseFeatureSelector):
 
     def get_selection_probs(self) -> torch.Tensor:
         return (0.5 * (1 + torch.erf(self.mu / (self.sigma * math.sqrt(2))))).detach()
-
-
-# ==================== STE LAYER ====================
 
 
 class STELayer(BaseFeatureSelector):
@@ -101,9 +92,6 @@ class STELayer(BaseFeatureSelector):
         return torch.sigmoid(self.logits).detach()
 
 
-# ==================== GUMBEL-SOFTMAX LAYER ====================
-
-
 class GumbelLayer(BaseFeatureSelector):
     """
     Gumbel-Softmax based feature selector.
@@ -130,9 +118,6 @@ class GumbelLayer(BaseFeatureSelector):
 
     def get_selection_probs(self) -> torch.Tensor:
         return F.softmax(self.logits, dim=1)[:, 1].detach()
-
-
-# ==================== CORRELATED STG LAYER ====================
 
 
 class CorrelatedSTGLayer(BaseFeatureSelector):
@@ -175,9 +160,6 @@ class CorrelatedSTGLayer(BaseFeatureSelector):
         return (0.5 * (1 + torch.erf(self.mu / (self.sigma * math.sqrt(2))))).detach()
 
 
-# ==================== L1 REGULARIZED NETWORK ====================
-
-
 class L1Layer(BaseFeatureSelector):
     """
     L1 regularization on input layer weights.
@@ -200,9 +182,6 @@ class L1Layer(BaseFeatureSelector):
     def get_selected_features(self, threshold: float = 0.1) -> np.ndarray:
         probs = self.get_selection_probs()
         return (probs > threshold).cpu().numpy()
-
-
-# ==================== IMPROVED TRAINER ====================
 
 
 class FeatureSelectionTrainer:
@@ -334,9 +313,6 @@ class FeatureSelectionTrainer:
         }
 
 
-# ==================== MODEL BUILDER ====================
-
-
 def create_classification_model(input_dim: int, num_classes: int, 
                                 hidden_dim: int = None) -> nn.Module:
     """Create a simple feedforward neural network."""
@@ -354,9 +330,6 @@ def create_classification_model(input_dim: int, num_classes: int,
         nn.Dropout(0.2),
         nn.Linear(hidden_dim // 2, num_classes)
     )
-
-
-# ==================== DATASET LOADERS ====================
 
 
 class DatasetLoader:
@@ -440,9 +413,6 @@ class DatasetLoader:
             'n_important': n_informative,
             'description': f'Binary classification, {n_total} features, {n_informative} informative with correlated copies'
         }
-
-
-# ==================== BENCHMARK ====================
 
 
 class ComprehensiveBenchmark:
@@ -611,9 +581,6 @@ class ComprehensiveBenchmark:
             print(f"{'-'*100}")
 
 
-# ==================== L1 BASELINE COMPARISON ====================
-
-
 def compare_with_l1_sklearn(datasets):
     """Compare with sklearn L1 logistic regression."""
     
@@ -665,9 +632,6 @@ def compare_with_l1_sklearn(datasets):
         print(f"  Features: {mean_features:.1f}")
     
     return results
-
-
-# ==================== MAIN ====================
 
 
 def main():
