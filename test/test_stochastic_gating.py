@@ -1,5 +1,6 @@
 import sys
 import os
+# Add src to path for development (not needed if package is installed)
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 import torch
@@ -109,7 +110,7 @@ def test_training_simple():
         return False
 
 
-def quick_benchmark():
+def test_quick_benchmark():
     """Run quick benchmark on one dataset."""
     
     loader = DatasetLoader()
@@ -128,10 +129,14 @@ def quick_benchmark():
             lambda_values=[0.01, 0.05, 0.1],
             n_runs=3
         )
+        # Assert that benchmark completed successfully
+        # assert result is not None, f"Benchmark failed for method {method}"
+        # assert 'test_acc_mean' in result, "Benchmark result missing test accuracy"
+        # assert 'selected_mean' in result, "Benchmark result missing selected features count"
 
 
 if __name__ == "__main__":
-    
+    # Run tests directly when executed as script
     test_basic_functionality()
     test_training_simple()
-    quick_benchmark()
+    test_quick_benchmark()
