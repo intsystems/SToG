@@ -1,15 +1,15 @@
 |test| |codecov| |docs|
 
-.. |test| image:: https://github.com/intsystems/ProjectTemplate/workflows/test/badge.svg
-    :target: https://github.com/intsystems/ProjectTemplate/tree/master
+.. |test| image:: https://github.com/intsystems/SToG/workflows/test/badge.svg
+    :target: https://github.com/intsystems/SToG/tree/master
     :alt: Test status
     
-.. |codecov| image:: https://img.shields.io/codecov/c/github/intsystems/ProjectTemplate/master
-    :target: https://app.codecov.io/gh/intsystems/ProjectTemplate
+.. |codecov| image:: https://img.shields.io/codecov/c/github/intsystems/SToG/master
+    :target: https://app.codecov.io/gh/intsystems/SToG
     :alt: Test coverage
     
-.. |docs| image:: https://github.com/intsystems/ProjectTemplate/workflows/docs/badge.svg
-    :target: https://intsystems.github.io/ProjectTemplate/
+.. |docs| image:: https://github.com/intsystems/SToG/workflows/docs/badge.svg
+    :target: https://intsystems.github.io/SToG/
     :alt: Docs status
 
 
