@@ -1,6 +1,10 @@
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+
 import torch
 import numpy as np
-from stochastic_gating_complete import (
+from mylib import (
     STGLayer, STELayer, GumbelLayer, CorrelatedSTGLayer, L1Layer,
     FeatureSelectionTrainer, create_classification_model,
     DatasetLoader, ComprehensiveBenchmark
@@ -24,23 +28,16 @@ def test_basic_functionality():
     }
     
     for name, selector in selectors.items():
-        # Forward pass
         out = selector(x)
         assert out.shape == x.shape, f"{name} output shape mismatch"
-        
-        # Regularization
         reg = selector.regularization_loss()
         assert reg.numel() == 1, f"{name} regularization should be scalar"
-        
-        # Selection probs
         probs = selector.get_selection_probs()
         assert probs.shape == (input_dim,), f"{name} probs shape mismatch"
-        
-        # Selected features
         selected = selector.get_selected_features()
         assert selected.shape == (input_dim,), f"{name} selected shape mismatch"
         
-        print(f"  ✓ {name} passed")
+        print(f"     {name} passed")
     
     print("All basic tests passed!\n")
 
@@ -105,10 +102,10 @@ def test_training_simple():
     print(f"  Their probabilities: {probs[top_3_indices]}")
     
     if result['test_acc'] > 70 and result['selected_count'] < n_features:
-        print("  ✓ Training test passed!\n")
+        print("  Training test passed!\n")
         return True
     else:
-        print("  ⚠ Training might need tuning\n")
+        print("  Training might need tuning\n")
         return False
 
 

@@ -1,74 +1,120 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# This file only contains a selection of the most common options. For a full
-# list see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
+"""Sphinx configuration for SToG documentation."""
 
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
 import os
 import sys
+from pathlib import Path
 
-sys.path.insert(0, os.path.abspath('../../src/'))
+# ============================================================================
+# Path Setup
+# ============================================================================
 
-from mylib import __version__
+# Получить абсолютный путь к project root
+project_root = Path(__file__).parent.parent.parent.resolve()
+sys.path.insert(0, str(project_root / "src"))
 
+print(f"Python path: {sys.path[0]}")
+print(f"Project root: {project_root}")
 
-# -- Project information -----------------------------------------------------
+# ============================================================================
+# Project Information
+# ============================================================================
 
-project = 'MyLib'
-copyright = '2022, Andrey Grabovoy'
-author = 'Andrey Grabovoy'
+project = 'SToG'
+copyright = '2025, MIPT'
+author = 'Eynullayev A., Rubtsov D., Firsov S., Karpeev G.'
+release = '0.0.1'
+version = '0.0.1'
 
-version = __version__
-master_doc = 'index'
+# ============================================================================
+# General Configuration
+# ============================================================================
 
-# -- General configuration ---------------------------------------------------
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.napoleon',
+    'myst_parser',
+]
 
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest', 
-              'sphinx.ext.intersphinx', 'sphinx.ext.todo',
-              'sphinx.ext.ifconfig', 'sphinx.ext.viewcode',
-              'sphinx.ext.inheritance_diagram',
-              'sphinx.ext.autosummary', 'sphinx.ext.mathjax',
-              'sphinx_rtd_theme']
-
-autodoc_mock_imports = ["numpy", "scipy", "sklearn"]
-
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
-
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
-
-html_extra_path = []
-
-html_context = {
-    "display_github": True, # Integrate GitHub
-    "github_user": "Intelligent-Systems-Phystech", # Username
-    "github_repo": "ProjectTemplate", # Repo name
-    "github_version": "master", # Version
-    "conf_py_path": "/doc/source/", # Path in the checkout to the docs root
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
 }
 
+master_doc = 'index'
+language = 'en'
+exclude_patterns = ['_build', '**.ipynb_checkpoints']
 
-# -- Options for HTML output -------------------------------------------------
+# ============================================================================
+# Autodoc Configuration
+# ============================================================================
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
+autodoc_default_options = {
+    'members': True,
+    'member-order': 'bysource',
+    'special-members': '__init__',
+    'undoc-members': False,
+    'show-inheritance': True,
+}
+
+autosummary_generate = True
+autosummary_generate_overwrite = True
+
+# ============================================================================
+# Napoleon Configuration (Google docstrings)
+# ============================================================================
+
+napoleon_google_docstring = True
+napoleon_numpy_docstring = False
+napoleon_include_init_with_doc = True
+napoleon_include_private_with_doc = False
+napoleon_include_special_with_doc = True
+napoleon_use_admonition_for_examples = True
+napoleon_use_admonition_for_notes = True
+napoleon_use_param = True
+napoleon_use_rtype = True
+
+# ============================================================================
+# HTML Theme Configuration
+# ============================================================================
+
 html_theme = 'sphinx_rtd_theme'
+html_theme_options = {
+    'logo_only': False,
+    'display_version': True,
+    'style_nav_header_background': '#3f51b5',
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 4,
+}
 
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+templates_path = ['_templates']
 
+# Create empty _static and _templates if they don't exist
+_static_path = Path(__file__).parent / '_static'
+_templates_path = Path(__file__).parent / '_templates'
+_static_path.mkdir(exist_ok=True)
+_templates_path.mkdir(exist_ok=True)
+
+# ============================================================================
+# Intersphinx Configuration
+# ============================================================================
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
+    'numpy': ('https://numpy.org/doc/stable', None),
+    'torch': ('https://pytorch.org/docs/stable/', None),
+    'sklearn': ('https://scikit-learn.org/stable', None),
+}
+
+# ============================================================================
+# Suppress Warnings
+# ============================================================================
+
+suppress_warnings = [
+    'app.add_config_value',
+]

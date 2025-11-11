@@ -1,1 +1,4 @@
-.. include:: ../../src/README.rst
+Installation
+============
+
+Текст и инструкции по установке...
