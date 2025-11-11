@@ -13,19 +13,14 @@
 import os
 import sys
 
-# Add the src directory to the path
 sys.path.insert(0, os.path.abspath('../../src/'))
 
-# Try to import version, fallback to default if fails
-try:
-    from mylib import __version__
-except ImportError:
-    __version__ = '0.0.1'
+from mylib import __version__
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'SToG - Stochastic Gating for Feature Selection'
+project = 'MyLib'
 copyright = '2022, Andrey Grabovoy'
 author = 'Andrey Grabovoy'
 
@@ -44,18 +39,9 @@ extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest',
               'sphinx.ext.autosummary', 'sphinx.ext.mathjax',
               'sphinx_rtd_theme']
 
-# Mock imports for autodoc (optional, can remove if packages are installed)
-autodoc_mock_imports = []
+autodoc_mock_imports = ["numpy", "scipy", "sklearn"]
 
 # Add any paths that contain templates here, relative to this directory.
-# Create directories if they don't exist
-template_dir = os.path.join(os.path.dirname(__file__), '_templates')
-static_dir = os.path.join(os.path.dirname(__file__), '_static')
-if not os.path.exists(template_dir):
-    os.makedirs(template_dir)
-if not os.path.exists(static_dir):
-    os.makedirs(static_dir)
-
 templates_path = ['_templates']
 
 # List of patterns, relative to source directory, that match files and

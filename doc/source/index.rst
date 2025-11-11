@@ -1,23 +1,28 @@
-Stochastic Gating for Feature Selection
-========================================
+.. MixtureLib documentation master file, created by
+   sphinx-quickstart on Fri Mar 20 22:58:28 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-Complete implementation of stochastic gating methods for feature selection in neural networks.
-
-This library provides implementations of:
-- **STG (Stochastic Gates)** - Original Gaussian-based method
-- **STE (Straight-Through Estimator)** - Binary gates with gradient approximation
-- **Gumbel-Softmax** - Categorical relaxation for feature gating
-- **Correlated STG** - Extension for handling correlated features
-- **L1 Regularization** - Baseline comparison method
+Welcome to Mixture Lib!
+=======================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Main Info:
    
    info.rst
-   getting_started.rst
-   architecture.rst
-   datasets.rst
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Get Started:
+   
+   installation.rst
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Packages:
+
    train.rst
 
 
