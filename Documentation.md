@@ -335,14 +335,59 @@ results = compare_with_l1_sklearn(datasets)
 # Make sure package is installed in editable mode
 pip install -e .
 
+# export path
+export PYTHONPATH="${PYTHONPATH}:$(pwd)/src"
+
 # Run tests
-python test/test_stochastic_gating.py
+python3 run_tests.py
 ```
 
-The test suite includes:
-- `test_basic_functionality()` - Tests all selector layers
-- `test_training_simple()` - Tests training on synthetic data
-- `quick_benchmark()` - Quick benchmark on one dataset
+Output should look like:
+
+```bash
+========================================================================= test session starts ==========================================================================
+platform linux -- Python 3.10.12, pytest-8.4.2, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/gkarp/Desktop/work/SToG
+plugins: typeguard-2.13.3, hydra-core-1.3.2, jaxtyping-0.3.2, cov-7.0.0
+collected 35 items                                                                                                                                                     
+
+test/test_stochastic_gating.py::TestBasicSelectors::test_stg_layer_forward PASSED                                                                                [  2%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_stg_layer_regularization PASSED                                                                         [  5%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_stg_layer_selection_probs PASSED                                                                        [  8%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_stg_layer_selected_features PASSED                                                                      [ 11%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_ste_layer_forward PASSED                                                                                [ 14%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_ste_layer_regularization PASSED                                                                         [ 17%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_gumbel_layer_forward PASSED                                                                             [ 20%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_gumbel_layer_temperature PASSED                                                                         [ 22%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_correlated_stg_layer_forward PASSED                                                                     [ 25%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_correlated_stg_layer_regularization PASSED                                                              [ 28%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_l1_layer_forward PASSED                                                                                 [ 31%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_l1_layer_regularization PASSED                                                                          [ 34%]
+test/test_stochastic_gating.py::TestBasicSelectors::test_l1_layer_custom_threshold PASSED                                                                        [ 37%]
+test/test_stochastic_gating.py::TestFeatureSelectionTrainer::test_trainer_initialization PASSED                                                                  [ 40%]
+test/test_stochastic_gating.py::TestFeatureSelectionTrainer::test_trainer_single_epoch PASSED                                                                    [ 42%]
+test/test_stochastic_gating.py::TestFeatureSelectionTrainer::test_trainer_fit PASSED                                                                             [ 45%]
+test/test_stochastic_gating.py::TestFeatureSelectionTrainer::test_trainer_early_stopping PASSED                                                                  [ 48%]
+test/test_stochastic_gating.py::TestFeatureSelectionTrainer::test_trainer_evaluate PASSED                                                                        [ 51%]
+test/test_stochastic_gating.py::TestDatasetLoader::test_load_breast_cancer PASSED                                                                                [ 54%]
+test/test_stochastic_gating.py::TestDatasetLoader::test_load_wine PASSED                                                                                         [ 57%]
+test/test_stochastic_gating.py::TestDatasetLoader::test_create_synthetic_high_dim PASSED                                                                         [ 60%]
+test/test_stochastic_gating.py::TestDatasetLoader::test_create_synthetic_correlated PASSED                                                                       [ 62%]
+test/test_stochastic_gating.py::TestModelCreation::test_create_classification_model_default PASSED                                                               [ 65%]
+test/test_stochastic_gating.py::TestModelCreation::test_create_classification_model_custom_hidden PASSED                                                         [ 68%]
+test/test_stochastic_gating.py::TestModelCreation::test_create_classification_model_multiclass PASSED                                                            [ 71%]
+test/test_stochastic_gating.py::TestComprehensiveBenchmark::test_benchmark_initialization PASSED                                                                 [ 74%]
+test/test_stochastic_gating.py::TestComprehensiveBenchmark::test_run_single_experiment PASSED                                                                    [ 77%]
+test/test_stochastic_gating.py::TestComprehensiveBenchmark::test_evaluate_method_single_lambda PASSED                                                            [ 80%]
+test/test_stochastic_gating.py::TestIntegration::test_end_to_end_stg PASSED                                                                                      [ 82%]
+test/test_stochastic_gating.py::TestIntegration::test_compare_all_methods_tiny PASSED                                                                            [ 85%]
+test/test_stochastic_gating.py::TestEdgeCases::test_single_feature PASSED                                                                                        [ 88%]
+test/test_stochastic_gating.py::TestEdgeCases::test_large_batch PASSED                                                                                           [ 91%]
+test/test_stochastic_gating.py::TestEdgeCases::test_zero_input PASSED                                                                                            [ 94%]
+test/test_stochastic_gating.py::TestEdgeCases::test_extreme_lambda PASSED                                                                                        [ 97%]
+test/test_stochastic_gating.py::test_sklearn_comparison_runs PASSED                                                                                              [100%]
+```
 
 ## Datasets
 
