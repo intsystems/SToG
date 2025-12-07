@@ -68,8 +68,8 @@ Or run tests:
 
 .. code-block:: bash
 
-   python run_tests.py check
-   python run_tests.py all
+   python test/run_tests.py check
+   python test/run_tests.py all
 
 Building Documentation
 ======================
