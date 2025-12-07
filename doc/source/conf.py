@@ -8,7 +8,7 @@ from pathlib import Path
 # Path Setup
 # ============================================================================
 
-# Получить абсолютный путь к project root
+# Get absolute path to project root
 project_root = Path(__file__).parent.parent.parent.resolve()
 sys.path.insert(0, str(project_root / "src"))
 
@@ -20,7 +20,7 @@ print(f"Project root: {project_root}")
 # ============================================================================
 
 project = 'SToG'
-copyright = '2025, MIPT'
+copyright = '2025, MIPT Intelligent Systems'
 author = 'Eynullayev A., Rubtsov D., Firsov S., Karpeev G.'
 release = '0.0.1'
 version = '0.0.1'
