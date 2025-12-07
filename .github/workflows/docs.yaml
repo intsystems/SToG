@@ -1,40 +1,40 @@
 name: docs
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     strategy:
       matrix:
-        python-version: [3.11]
-        
+        python-version: ["3.11"]
+    
     steps:
-      - name: Set up Python
+      - uses: actions/checkout@v2
+      
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
-
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-        
-      - name: Install Dependencies
-        run: pip install -r doc/requirements.txt
-
-          
-      - name: Build Docs
+          python-version: ${{ matrix.python-version }}
+      
+      - name: Install project dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+    
+      - name: Install documentation dependencies
+        run: |
+          pip install -r doc/requirements.txt
+      
+      - name: Build documentation
         run: |
           sphinx-build -b html ./doc/source/ public
-          touch public/.nojekyll
-          
-      - name: Deploy 🚀
+      
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: public
+          CLEAN: true
