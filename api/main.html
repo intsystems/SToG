@@ -19,6 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="References" href="../references.html" />
     <link rel="prev" title="benchmark" href="benchmark.html" /> 
 </head>
 
@@ -43,17 +44,30 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="base.html">base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="selectors.html">selectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer.html">trainer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models.html">models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="datasets.html">datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="benchmark.html">benchmark</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">main</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">main</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-mylib.main">Main Execution Script</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mylib.main.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#module-overview">Module Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#design-philosophy">Design Philosophy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">SToG: Stochastic Gating for Feature Selection</a></li>
@@ -86,6 +100,133 @@
              
   <section id="main">
 <h1>main<a class="headerlink" href="#main" title="Link to this heading"></a></h1>
+<section id="module-mylib.main">
+<span id="main-execution-script"></span><h2>Main Execution Script<a class="headerlink" href="#module-mylib.main" title="Link to this heading"></a></h2>
+<p>Main execution script for benchmarking.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="mylib.main.main">
+<span class="sig-prename descclassname"><span class="pre">mylib.main.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/main.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.main.main" title="Link to this definition"></a></dt>
+<dd><p>Main execution function.</p>
+</dd></dl>
+
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
+<p>The <a class="reference internal" href="#module-mylib.main" title="mylib.main"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mylib.main</span></code></a> module provides the entry point for running complete feature selection
+benchmarks with all implemented methods.</p>
+<section id="main-function">
+<h4>Main Function<a class="headerlink" href="#main-function" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">mylib.main.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/main.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Main execution function.</p>
+</dd></dl>
+
+<p>The <a class="reference internal" href="#id0" title="mylib.main.main"><code class="xref py py-func docutils literal notranslate"><span class="pre">mylib.main.main()</span></code></a> function:</p>
+<ol class="arabic simple">
+<li><p>Loads all available benchmark datasets</p></li>
+<li><p>Initializes the comprehensive benchmark</p></li>
+<li><p>Runs feature selection with all methods</p></li>
+<li><p>Compares results with scikit-learn L1 regularization</p></li>
+<li><p>Prints summary statistics</p></li>
+</ol>
+</section>
+<section id="running-from-command-line">
+<h4>Running from Command Line<a class="headerlink" href="#running-from-command-line" title="Link to this heading"></a></h4>
+<p>Execute the entire benchmarking pipeline:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>mylib.main
+</pre></div>
+</div>
+<p>Or from Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">main</span>
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="what-gets-executed">
+<h4>What Gets Executed<a class="headerlink" href="#what-gets-executed" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p><strong>Load Datasets</strong>
+- Breast Cancer (UCI dataset)
+- Wine (UCI dataset)
+- Synthetic High-Dimensional (MADELON-like)
+- Synthetic Correlated (custom)</p></li>
+<li><p><strong>Run Benchmarks</strong>
+- Tests all 5 methods (STG, STE, Gumbel, CorrelatedSTG, L1)
+- Searches optimal lambda for each method
+- Reports accuracy and sparsity</p></li>
+<li><p><strong>Compare with Scikit-learn</strong>
+- Tests LogisticRegression with L1 penalty
+- Compares feature selection results</p></li>
+<li><p><strong>Print Summary</strong>
+- Tabular results for each dataset
+- Method rankings by accuracy
+- Recommendations for different use cases</p></li>
+</ol>
+</section>
+<section id="output-example">
+<h4>Output Example<a class="headerlink" href="#output-example" title="Link to this heading"></a></h4>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>======================================================================
+                     Breast Cancer Dataset
+======================================================================
+
+STG        | Accuracy: 95.67% | Selected:  8/30 (73.3% sparse)
+STE        | Accuracy: 95.08% | Selected: 10/30 (66.7% sparse)
+Gumbel     | Accuracy: 96.04% | Selected:  9/30 (70.0% sparse)
+Correlated | Accuracy: 96.04% | Selected:  9/30 (70.0% sparse)
+L1         | Accuracy: 94.29% | Selected: 12/30 (60.0% sparse)
+sklearn L1 | Accuracy: 94.50% | Selected: 14/30 (53.3% sparse)
+
+======================================================================
+                 Synthetic High-Dimensional Dataset
+======================================================================
+
+STG        | Accuracy: 98.33% | Selected:  7/100 (93.0% sparse)
+STE        | Accuracy: 97.50% | Selected:  8/100 (92.0% sparse)
+Gumbel     | Accuracy: 98.33% | Selected:  7/100 (93.0% sparse)
+Correlated | Accuracy: 98.33% | Selected:  6/100 (94.0% sparse)
+L1         | Accuracy: 96.67% | Selected: 12/100 (88.0% sparse)
+sklearn L1 | Accuracy: 96.00% | Selected: 15/100 (85.0% sparse)
+</pre></div>
+</div>
+</section>
+<section id="customizing-benchmarks">
+<h4>Customizing Benchmarks<a class="headerlink" href="#customizing-benchmarks" title="Link to this heading"></a></h4>
+<p>To modify benchmarking behavior, edit or extend the main function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComprehensiveBenchmark</span><span class="p">,</span> <span class="n">DatasetLoader</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">custom_benchmark</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Custom benchmarking with specific settings.&quot;&quot;&quot;</span>
+    <span class="n">loader</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="p">()</span>
+
+    <span class="c1"># Select specific datasets</span>
+    <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">loader</span><span class="o">.</span><span class="n">create_synthetic_high_dim</span><span class="p">(),</span>
+        <span class="n">loader</span><span class="o">.</span><span class="n">create_synthetic_correlated</span><span class="p">(),</span>
+    <span class="p">]</span>
+
+    <span class="c1"># Run with GPU if available</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span>
+
+    <span class="n">benchmark</span> <span class="o">=</span> <span class="n">ComprehensiveBenchmark</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">benchmark</span><span class="o">.</span><span class="n">run_benchmark</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">custom_benchmark</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="performance-tips">
+<h4>Performance Tips<a class="headerlink" href="#performance-tips" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>Use GPU</strong> for faster training: <code class="docutils literal notranslate"><span class="pre">device='cuda'</span></code></p></li>
+<li><p><strong>Reduce epochs</strong> for quick testing: modify trainer defaults</p></li>
+<li><p><strong>Subset datasets</strong> for quick validation: load only 1-2 datasets</p></li>
+<li><p><strong>Parallel processing</strong> would require modifying benchmark class</p></li>
+</ul>
+</section>
+</section>
+</section>
 </section>
 
 
@@ -93,12 +234,13 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="benchmark.html" class="btn btn-neutral float-left" title="benchmark" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../references.html" class="btn btn-neutral float-right" title="References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, MIPT.</p>
+    <p>&#169; Copyright 2025, MIPT Intelligent Systems.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

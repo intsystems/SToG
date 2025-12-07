@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="base" href="base.html" />
-    <link rel="prev" title="Installation" href="../installation.html" /> 
+    <link rel="prev" title="Tutorial" href="../tutorial.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,17 +44,23 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="base.html">base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="selectors.html">selectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer.html">trainer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models.html">models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="datasets.html">datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="benchmark.html">benchmark</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-overview">Module Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-philosophy">Design Philosophy</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">SToG: Stochastic Gating for Feature Selection</a></li>
@@ -89,25 +95,86 @@
 <p>Complete API documentation for SToG.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="base.html">base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="selectors.html">selectors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="models.html">models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datasets.html">datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmark.html">benchmark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="main.html">main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">base</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="base.html#module-mylib.base">Base Feature Selector Class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="selectors.html">selectors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="selectors.html#module-mylib.selectors">Feature Selection Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trainer.html">trainer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trainer.html#module-mylib.trainer">Training Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer.html#featureselectiontrainer">FeatureSelectionTrainer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models.html#module-mylib.models">Model Factories</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#module-mylib.datasets">Dataset Loading Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#datasetloader">DatasetLoader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="benchmark.html">benchmark</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html#module-mylib.benchmark">Benchmarking Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html#comprehensivebenchmark">ComprehensiveBenchmark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">main</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html#module-mylib.main">Main Execution Script</a></li>
+</ul>
+</li>
 </ul>
 </div>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
-<p>SToG consists of several modules:</p>
+<section id="module-overview">
+<h2>Module Overview<a class="headerlink" href="#module-overview" title="Link to this heading"></a></h2>
+<p>The SToG library consists of several interconnected modules:</p>
+<dl class="simple">
+<dt><strong>base.py</strong> - Abstract base class</dt><dd><p>Defines <a class="reference internal" href="generated/mylib.base.html#mylib.base.BaseFeatureSelector" title="mylib.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.base.BaseFeatureSelector</span></code></a>, the abstract base for all feature selector implementations.</p>
+</dd>
+<dt><strong>selectors.py</strong> - Feature selection methods</dt><dd><p>Implements five feature selection methods:</p>
 <ul class="simple">
-<li><p><strong>base.py</strong> - Base class for feature selectors</p></li>
-<li><p><strong>selectors.py</strong> - Feature selection methods (STG, STE, Gumbel, etc.)</p></li>
-<li><p><strong>trainer.py</strong> - Training utilities</p></li>
-<li><p><strong>models.py</strong> - Neural network models</p></li>
-<li><p><strong>datasets.py</strong> - Dataset loading utilities</p></li>
-<li><p><strong>benchmark.py</strong> - Benchmarking framework</p></li>
-<li><p><strong>main.py</strong> - Main execution script</p></li>
+<li><p><a class="reference internal" href="selectors.html#id0" title="mylib.selectors.STGLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.selectors.STGLayer</span></code></a> - Stochastic Gates with Gaussian relaxation</p></li>
+<li><p><a class="reference internal" href="selectors.html#id5" title="mylib.selectors.STELayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.selectors.STELayer</span></code></a> - Straight-Through Estimator</p></li>
+<li><p><a class="reference internal" href="selectors.html#id10" title="mylib.selectors.GumbelLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.selectors.GumbelLayer</span></code></a> - Gumbel-Softmax categorical relaxation</p></li>
+<li><p><a class="reference internal" href="selectors.html#id16" title="mylib.selectors.CorrelatedSTGLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.selectors.CorrelatedSTGLayer</span></code></a> - STG for correlated features</p></li>
+<li><p><a class="reference internal" href="selectors.html#id21" title="mylib.selectors.L1Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.selectors.L1Layer</span></code></a> - L1 regularization baseline</p></li>
+</ul>
+</dd>
+<dt><strong>trainer.py</strong> - Training utilities</dt><dd><p>Provides <a class="reference internal" href="trainer.html#id0" title="mylib.trainer.FeatureSelectionTrainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.trainer.FeatureSelectionTrainer</span></code></a> for joint optimization of model and selector.</p>
+</dd>
+<dt><strong>models.py</strong> - Model factories</dt><dd><p>Provides <a class="reference internal" href="models.html#id0" title="mylib.models.create_classification_model"><code class="xref py py-func docutils literal notranslate"><span class="pre">mylib.models.create_classification_model()</span></code></a> for creating neural network classifiers.</p>
+</dd>
+<dt><strong>datasets.py</strong> - Dataset utilities</dt><dd><p>Provides <a class="reference internal" href="generated/mylib.datasets.html#mylib.datasets.DatasetLoader" title="mylib.datasets.DatasetLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.datasets.DatasetLoader</span></code></a> for loading and preparing datasets.</p>
+</dd>
+<dt><strong>benchmark.py</strong> - Benchmarking framework</dt><dd><p>Provides <a class="reference internal" href="generated/mylib.benchmark.html#mylib.benchmark.ComprehensiveBenchmark" title="mylib.benchmark.ComprehensiveBenchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.benchmark.ComprehensiveBenchmark</span></code></a> for comparing methods across datasets.</p>
+</dd>
+<dt><strong>main.py</strong> - Main execution</dt><dd><p>Entry point for running benchmarks via <a class="reference internal" href="main.html#id0" title="mylib.main.main"><code class="xref py py-func docutils literal notranslate"><span class="pre">mylib.main.main()</span></code></a>.</p>
+</dd>
+</dl>
+</section>
+<section id="design-philosophy">
+<h2>Design Philosophy<a class="headerlink" href="#design-philosophy" title="Link to this heading"></a></h2>
+<p><strong>Modular Architecture</strong></p>
+<p>Each feature selector inherits from <a class="reference internal" href="generated/mylib.base.html#mylib.base.BaseFeatureSelector" title="mylib.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.base.BaseFeatureSelector</span></code></a>, ensuring consistent interface:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BaseFeatureSelector (Abstract)
+├── forward(x) -&gt; x_gated
+├── regularization_loss() -&gt; scalar
+├── get_selection_probs() -&gt; probabilities
+└── get_selected_features(threshold) -&gt; mask
+</pre></div>
+</div>
+<p><strong>Extensibility</strong></p>
+<p>New feature selection methods can be implemented by subclassing <a class="reference internal" href="generated/mylib.base.html#mylib.base.BaseFeatureSelector" title="mylib.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.base.BaseFeatureSelector</span></code></a>
+and implementing three methods: <code class="docutils literal notranslate"><span class="pre">forward</span></code>, <code class="docutils literal notranslate"><span class="pre">regularization_loss</span></code>, and <code class="docutils literal notranslate"><span class="pre">get_selection_probs</span></code>.</p>
+<p><strong>PyTorch Integration</strong></p>
+<p>All components are built on PyTorch:</p>
+<ul class="simple">
+<li><p>Selectors inherit from <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.Module</span></code></a></p></li>
+<li><p>Computations use standard PyTorch tensors</p></li>
+<li><p>Compatible with PyTorch’s optimization and autograd system</p></li>
 </ul>
 </section>
 </section>
@@ -116,14 +183,14 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../tutorial.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="base.html" class="btn btn-neutral float-right" title="base" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, MIPT.</p>
+    <p>&#169; Copyright 2025, MIPT Intelligent Systems.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

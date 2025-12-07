@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>trainer &mdash; SToG 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="models" href="models.html" />
+    <link rel="prev" title="selectors" href="selectors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3f51b5" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SToG
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="base.html">base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selectors.html">selectors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">trainer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-mylib.trainer">Training Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mylib.trainer.FeatureSelectionTrainer"><code class="docutils literal notranslate"><span class="pre">FeatureSelectionTrainer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#featureselectiontrainer">FeatureSelectionTrainer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">FeatureSelectionTrainer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html">datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html">benchmark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#module-overview">Module Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#design-philosophy">Design Philosophy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">SToG: Stochastic Gating for Feature Selection</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3f51b5" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SToG</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">API Reference</a></li>
+      <li class="breadcrumb-item active">trainer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/trainer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="trainer">
+<h1>trainer<a class="headerlink" href="#trainer" title="Link to this heading"></a></h1>
+<section id="module-mylib.trainer">
+<span id="training-utilities"></span><h2>Training Utilities<a class="headerlink" href="#module-mylib.trainer" title="Link to this heading"></a></h2>
+<p>Training utilities for feature selection.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mylib.trainer.FeatureSelectionTrainer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mylib.trainer.</span></span><span class="sig-name descname"><span class="pre">FeatureSelectionTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/trainer.html#FeatureSelectionTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.trainer.FeatureSelectionTrainer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Trainer with proper lambda search and early stopping.
+Handles joint training of classification model and feature selector.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.trainer.FeatureSelectionTrainer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/trainer.html#FeatureSelectionTrainer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.trainer.FeatureSelectionTrainer.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize trainer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – Classification model (nn.Module)</p></li>
+<li><p><strong>selector</strong> – Feature selector (BaseFeatureSelector)</p></li>
+<li><p><strong>criterion</strong> – Loss function</p></li>
+<li><p><strong>lambda_reg</strong> – Regularization strength</p></li>
+<li><p><strong>device</strong> – Device to run on</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.trainer.FeatureSelectionTrainer.train_epoch">
+<span class="sig-name descname"><span class="pre">train_epoch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/trainer.html#FeatureSelectionTrainer.train_epoch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.trainer.FeatureSelectionTrainer.train_epoch" title="Link to this definition"></a></dt>
+<dd><p>Train for one epoch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.trainer.FeatureSelectionTrainer.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patience</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/trainer.html#FeatureSelectionTrainer.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.trainer.FeatureSelectionTrainer.fit" title="Link to this definition"></a></dt>
+<dd><p>Train the model with early stopping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_train</strong> – Training features [N_train, D]</p></li>
+<li><p><strong>y_train</strong> – Training labels [N_train]</p></li>
+<li><p><strong>X_val</strong> – Validation features [N_val, D]</p></li>
+<li><p><strong>y_val</strong> – Validation labels [N_val]</p></li>
+<li><p><strong>epochs</strong> – Maximum number of epochs</p></li>
+<li><p><strong>patience</strong> – Early stopping patience</p></li>
+<li><p><strong>verbose</strong> – Whether to print progress</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Training history dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.trainer.FeatureSelectionTrainer.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/trainer.html#FeatureSelectionTrainer.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.trainer.FeatureSelectionTrainer.evaluate" title="Link to this definition"></a></dt>
+<dd><p>Evaluate on test set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_test</strong> – Test features [N_test, D]</p></li>
+<li><p><strong>y_test</strong> – Test labels [N_test]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with test metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="featureselectiontrainer">
+<h2>FeatureSelectionTrainer<a class="headerlink" href="#featureselectiontrainer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mylib.trainer.</span></span><span class="sig-name descname"><span class="pre">FeatureSelectionTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/trainer.html#FeatureSelectionTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Trainer with proper lambda search and early stopping.
+Handles joint training of classification model and feature selector.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/trainer.html#FeatureSelectionTrainer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Initialize trainer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – Classification model (nn.Module)</p></li>
+<li><p><strong>selector</strong> – Feature selector (BaseFeatureSelector)</p></li>
+<li><p><strong>criterion</strong> – Loss function</p></li>
+<li><p><strong>lambda_reg</strong> – Regularization strength</p></li>
+<li><p><strong>device</strong> – Device to run on</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">train_epoch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/trainer.html#FeatureSelectionTrainer.train_epoch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>Train for one epoch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patience</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/trainer.html#FeatureSelectionTrainer.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd><p>Train the model with early stopping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_train</strong> – Training features [N_train, D]</p></li>
+<li><p><strong>y_train</strong> – Training labels [N_train]</p></li>
+<li><p><strong>X_val</strong> – Validation features [N_val, D]</p></li>
+<li><p><strong>y_val</strong> – Validation labels [N_val]</p></li>
+<li><p><strong>epochs</strong> – Maximum number of epochs</p></li>
+<li><p><strong>patience</strong> – Early stopping patience</p></li>
+<li><p><strong>verbose</strong> – Whether to print progress</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Training history dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/trainer.html#FeatureSelectionTrainer.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Evaluate on test set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_test</strong> – Test features [N_test, D]</p></li>
+<li><p><strong>y_test</strong> – Test labels [N_test]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with test metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
+<p>The <a class="reference internal" href="#id0" title="mylib.trainer.FeatureSelectionTrainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.trainer.FeatureSelectionTrainer</span></code></a> handles joint optimization of a classification
+model and a feature selector. It implements:</p>
+<ul class="simple">
+<li><p><strong>Two-optimizer approach</strong> - Separate optimizers for model and selector</p></li>
+<li><p><strong>Early stopping</strong> - Validation-based stopping with configurable patience</p></li>
+<li><p><strong>Gradient clipping</strong> - Prevents gradient explosion</p></li>
+<li><p><strong>History tracking</strong> - Records metrics for analysis</p></li>
+<li><p><strong>Model checkpointing</strong> - Saves best model state</p></li>
+</ul>
+<section id="architecture">
+<h4>Architecture<a class="headerlink" href="#architecture" title="Link to this heading"></a></h4>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Input Data
+    │
+    ├─&gt; Selector (Feature Gates)
+    │        │
+    │   [Gate Parameters]
+    │
+    └─&gt; Model (Classifier)
+            │
+        [Model Parameters]
+            │
+       Output Logits
+            │
+       Classification Loss + Regularization Loss
+            │
+       ┌─────┴──────┐
+       │             │
+    Model        Selector
+   Optimizer     Optimizer
+   (lr=0.001)    (lr=0.01)
+       │             │
+       └─────┬───────┘
+             │
+      Update Parameters
+</pre></div>
+</div>
+</section>
+<section id="joint-loss-function">
+<h4>Joint Loss Function<a class="headerlink" href="#joint-loss-function" title="Link to this heading"></a></h4>
+<p>The trainer optimizes:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{task}}(\mathbf{f}, \mathbf{g}) + \lambda \Omega(\mathbf{g})\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}_{\text{task}}\)</span> is the classification loss (CrossEntropyLoss)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega(\mathbf{g})\)</span> is the regularization from selector</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> controls sparsity-accuracy trade-off</p></li>
+</ul>
+</section>
+<section id="two-optimizer-strategy">
+<h4>Two-Optimizer Strategy<a class="headerlink" href="#two-optimizer-strategy" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt><strong>Model Optimizer:</strong></dt><dd><ul class="simple">
+<li><p>Lower learning rate (default: 0.001)</p></li>
+<li><p>Updates classification parameters <span class="math notranslate nohighlight">\(\mathbf{f}\)</span></p></li>
+<li><p>Learns from task loss</p></li>
+</ul>
+</dd>
+<dt><strong>Selector Optimizer:</strong></dt><dd><ul class="simple">
+<li><p>Higher learning rate (default: 0.01)</p></li>
+<li><p>Updates gate parameters <span class="math notranslate nohighlight">\(\mathbf{g}\)</span></p></li>
+<li><p>Learns from task + regularization loss</p></li>
+<li><p>10x higher learning rate enables faster adaptation</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="early-stopping">
+<h4>Early Stopping<a class="headerlink" href="#early-stopping" title="Link to this heading"></a></h4>
+<p>Early stopping monitors</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="selectors.html" class="btn btn-neutral float-left" title="selectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="models.html" class="btn btn-neutral float-right" title="models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, MIPT Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>References &mdash; SToG 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="main" href="api/main.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3f51b5" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SToG
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">References</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#primary-references">Primary References</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stochastic-gating-stg">Stochastic Gating (STG)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#straight-through-estimator-ste">Straight-Through Estimator (STE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gumbel-softmax">Gumbel-Softmax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correlated-features">Correlated Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-selection-overview">Feature Selection Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#related-deep-learning-methods">Related Deep Learning Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#related-benchmarking-work">Related Benchmarking Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-references">Implementation References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#citing-stog">Citing SToG</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">SToG: Stochastic Gating for Feature Selection</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3f51b5" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SToG</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">References</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/references.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="references">
+<h1>References<a class="headerlink" href="#references" title="Link to this heading"></a></h1>
+<p>This section lists academic references for the methods implemented in SToG.</p>
+<section id="primary-references">
+<h2>Primary References<a class="headerlink" href="#primary-references" title="Link to this heading"></a></h2>
+<section id="stochastic-gating-stg">
+<h3>Stochastic Gating (STG)<a class="headerlink" href="#stochastic-gating-stg" title="Link to this heading"></a></h3>
+<div role="list" class="citation-list">
+<div class="citation" id="yamada2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Yamada2020<span class="fn-bracket">]</span></span>
+<p>Yamada, Y., Lindenbaum, O., Negahban, S., &amp; Kluger, Y. (2020).
+“Feature Selection using Stochastic Gates.”
+In <em>International Conference on Machine Learning (ICML)</em> (pp. 10648-10659).
+<a class="reference external" href="https://proceedings.mlr.press/v119/yamada20a/yamada20a.pdf">https://proceedings.mlr.press/v119/yamada20a/yamada20a.pdf</a></p>
+<ul class="simple">
+<li><p>Original stochastic gating method</p></li>
+<li><p>Gaussian-based continuous relaxation</p></li>
+<li><p>Foundational work for the library</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="straight-through-estimator-ste">
+<h3>Straight-Through Estimator (STE)<a class="headerlink" href="#straight-through-estimator-ste" title="Link to this heading"></a></h3>
+<div role="list" class="citation-list">
+<div class="citation" id="bengio2013" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Bengio2013<span class="fn-bracket">]</span></span>
+<p>Bengio, Y., Léonard, N., &amp; Courville, A. (2013).
+“Estimating or Propagating Gradients Through Stochastic Neurons for Conditional Computation.”
+<em>arXiv preprint</em> arXiv:1308.0850.
+https://arxiv.org/abs/1308.0850</p>
+<ul class="simple">
+<li><p>Gradient approximation through discrete operations</p></li>
+<li><p>Enables backpropagation through binarization</p></li>
+</ul>
+</div>
+<div class="citation" id="courbariaux2015" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Courbariaux2015<span class="fn-bracket">]</span></span>
+<p>Courbariaux, M., Bengio, Y., &amp; David, J. P. (2015).
+“Binarized Neural Networks.”
+In <em>Advances in Neural Information Processing Systems (NIPS)</em> (pp. 3123-3131).
+<a class="reference external" href="https://arxiv.org/abs/1602.02830">https://arxiv.org/abs/1602.02830</a></p>
+<ul class="simple">
+<li><p>Application of STE to binarized networks</p></li>
+<li><p>Practical implementation details</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="gumbel-softmax">
+<h3>Gumbel-Softmax<a class="headerlink" href="#gumbel-softmax" title="Link to this heading"></a></h3>
+<div role="list" class="citation-list">
+<div class="citation" id="jang2017" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Jang2017<span class="fn-bracket">]</span></span>
+<p>Jang, E., Gu, S., &amp; Poole, B. (2017).
+“Categorical Reparameterization with Gumbel-Softmax.”
+In <em>International Conference on Learning Representations (ICLR)</em>.
+<a class="reference external" href="https://arxiv.org/abs/1611.01144">https://arxiv.org/abs/1611.01144</a></p>
+<ul class="simple">
+<li><p>Gumbel trick for categorical distribution</p></li>
+<li><p>Temperature-annealed softmax</p></li>
+</ul>
+</div>
+<div class="citation" id="maddison2017" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Maddison2017<span class="fn-bracket">]</span></span>
+<p>Maddison, C. J., Hoffman, M. D., &amp; Mnih, A. (2017).
+“The Concrete Distribution: A Continuous Relaxation of Discrete Random Variables.”
+In <em>International Conference on Learning Representations (ICLR)</em>.
+<a class="reference external" href="https://arxiv.org/abs/1611.00712">https://arxiv.org/abs/1611.00712</a></p>
+<ul class="simple">
+<li><p>Concrete (Gumbel-Softmax) distribution</p></li>
+<li><p>Continuous relaxation theory</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="correlated-features">
+<h3>Correlated Features<a class="headerlink" href="#correlated-features" title="Link to this heading"></a></h3>
+<div role="list" class="citation-list">
+<div class="citation" id="featureselection2020" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>FeatureSelection2020<span class="fn-bracket">]</span></span>
+<p>Yuan, M., Lin, Y., &amp; Bi, W. (2010).
+“Robust Estimation of Structured Sparsity.”
+In <em>The Annals of Statistics</em>, 38(6), 3242-3274.
+<a class="reference external" href="https://doi.org/10.1214/10-AOS815">https://doi.org/10.1214/10-AOS815</a></p>
+<ul class="simple">
+<li><p>Group sparsity for correlated features</p></li>
+<li><p>Structured variable selection</p></li>
+</ul>
+</div>
+<div class="citation" id="jiang2017" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Jiang2017<span class="fn-bracket">]</span></span>
+<p>Jiang, B., Wang, S., &amp; Zhu, S. (2017).
+“Data Poisoning Attacks Against Multi-Party Machine Learning.”
+In <em>35th International Conference on Machine Learning (ICML)</em>.</p>
+<ul class="simple">
+<li><p>Handling correlated feature groups</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="feature-selection-overview">
+<h2>Feature Selection Overview<a class="headerlink" href="#feature-selection-overview" title="Link to this heading"></a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="guyon2003" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Guyon2003<span class="fn-bracket">]</span></span>
+<p>Guyon, I., &amp; Elisseeff, A. (2003).
+“An introduction to variable and feature selection.”
+<em>Journal of machine learning research</em>, 3(Mar), 1157-1182.
+<a class="reference external" href="http://www.jmlr.org/papers/volume3/guyon03a/guyon03a.pdf">http://www.jmlr.org/papers/volume3/guyon03a/guyon03a.pdf</a></p>
+<ul class="simple">
+<li><p>Comprehensive feature selection survey</p></li>
+<li><p>Classical methods and evaluation</p></li>
+</ul>
+</div>
+<div class="citation" id="kohavi1997" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Kohavi1997<span class="fn-bracket">]</span></span>
+<p>Kohavi, R., &amp; John, G. H. (1997).
+“Wrappers for feature subset selection.”
+<em>Artificial intelligence</em>, 97(1-2), 273-324.
+<a class="reference external" href="https://doi.org/10.1016/S0004-3702(97)00043-X">https://doi.org/10.1016/S0004-3702(97)00043-X</a></p>
+<ul class="simple">
+<li><p>Wrapper methods for feature selection</p></li>
+<li><p>Cross-validation approaches</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="related-deep-learning-methods">
+<h2>Related Deep Learning Methods<a class="headerlink" href="#related-deep-learning-methods" title="Link to this heading"></a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="louizos2018" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Louizos2018<span class="fn-bracket">]</span></span>
+<p>Louizos, C., Welling, M., &amp; Kingma, D. P. (2018).
+“Learning sparse neural networks through L0 regularization.”
+In <em>International Conference on Learning Representations (ICLR)</em>.
+<a class="reference external" href="https://arxiv.org/abs/1712.01312">https://arxiv.org/abs/1712.01312</a></p>
+<ul class="simple">
+<li><p>L0 regularization for neural network pruning</p></li>
+<li><p>Related to feature selection</p></li>
+</ul>
+</div>
+<div class="citation" id="tibshirani1996" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Tibshirani1996<span class="fn-bracket">]</span></span>
+<p>Tibshirani, R. (1996).
+“Regression shrinkage and selection via the lasso.”
+<em>Journal of the royal statistical society: series B</em>, 58(1), 267-288.
+<a class="reference external" href="https://doi.org/10.1111/j.2517-6161.1996.tb02080.x">https://doi.org/10.1111/j.2517-6161.1996.tb02080.x</a></p>
+<ul class="simple">
+<li><p>LASSO and L1 regularization</p></li>
+<li><p>Classical sparse regression method</p></li>
+</ul>
+</div>
+<div class="citation" id="loh2015" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Loh2015<span class="fn-bracket">]</span></span>
+<p>Loh, P. L., &amp; Wainwright, M. J. (2015).
+“Regularized M-estimators with nonconvexity: Statistical and algorithmic theory for compound losses.”
+<em>The Journal of Machine Learning Research</em>, 16(1), 559-604.</p>
+<ul class="simple">
+<li><p>Theoretical foundations of sparse estimation</p></li>
+<li><p>High-dimensional statistics</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="related-benchmarking-work">
+<h2>Related Benchmarking Work<a class="headerlink" href="#related-benchmarking-work" title="Link to this heading"></a></h2>
+<div role="list" class="citation-list">
+<div class="citation" id="demsar2006" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Demšar2006<span class="fn-bracket">]</span></span>
+<p>Demšar, J. (2006).
+“Statistical comparisons of classifiers over multiple data sets.”
+<em>The Journal of Machine Learning Research</em>, 7, 1-30.
+<a class="reference external" href="http://www.jmlr.org/papers/volume7/demsargensemble06a/dems">http://www.jmlr.org/papers/volume7/demsargensemble06a/dems</a>…</p>
+<ul class="simple">
+<li><p>Statistical comparison methodology</p></li>
+<li><p>Benchmark evaluation protocols</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="implementation-references">
+<h2>Implementation References<a class="headerlink" href="#implementation-references" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>PyTorch Documentation</strong></dt><dd><p><a class="reference external" href="https://pytorch.org/docs/stable/">https://pytorch.org/docs/stable/</a></p>
+</dd>
+<dt><strong>NumPy Documentation</strong></dt><dd><p><a class="reference external" href="https://numpy.org/doc/stable/">https://numpy.org/doc/stable/</a></p>
+</dd>
+<dt><strong>scikit-learn Documentation</strong></dt><dd><p><a class="reference external" href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a></p>
+</dd>
+</dl>
+</section>
+<section id="citing-stog">
+<h2>Citing SToG<a class="headerlink" href="#citing-stog" title="Link to this heading"></a></h2>
+<p>If you use SToG in your research, please cite:</p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@software</span><span class="p">{</span><span class="nl">stog2025</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{SToG: Stochastic Gating for Feature Selection}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Eynullayev, A. and Rubtsov, D. and Firsov, S. and Karpeev, G.}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">url</span><span class="p">=</span><span class="s">{https://github.com/intsystems/SToG}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api/main.html" class="btn btn-neutral float-left" title="main" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, MIPT Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

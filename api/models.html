@@ -16,11 +16,12 @@
       <script src="../_static/documentation_options.js?v=d45e8c67"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="datasets" href="datasets.html" />
-    <link rel="prev" title="selectors" href="selectors.html" /> 
+    <link rel="prev" title="trainer" href="trainer.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,17 +45,30 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="base.html">base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="selectors.html">selectors</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer.html">trainer</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-mylib.models">Model Factories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mylib.models.create_classification_model"><code class="docutils literal notranslate"><span class="pre">create_classification_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="datasets.html">datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="benchmark.html">benchmark</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main.html">main</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#module-overview">Module Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#design-philosophy">Design Philosophy</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">SToG: Stochastic Gating for Feature Selection</a></li>
@@ -87,20 +101,165 @@
              
   <section id="models">
 <h1>models<a class="headerlink" href="#models" title="Link to this heading"></a></h1>
+<section id="module-mylib.models">
+<span id="model-factories"></span><h2>Model Factories<a class="headerlink" href="#module-mylib.models" title="Link to this heading"></a></h2>
+<p>Model definitions for classification tasks.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="mylib.models.create_classification_model">
+<span class="sig-prename descclassname"><span class="pre">mylib.models.</span></span><span class="sig-name descname"><span class="pre">create_classification_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><span class="pre">Module</span></a></span></span><a class="reference internal" href="../_modules/mylib/models.html#create_classification_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.models.create_classification_model" title="Link to this definition"></a></dt>
+<dd><p>Create a simple feedforward neural network for classification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dim</strong> – Number of input features</p></li>
+<li><p><strong>num_classes</strong> – Number of output classes</p></li>
+<li><p><strong>hidden_dim</strong> – Hidden layer dimension (auto-calculated if None)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>PyTorch sequential model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
+<p>The <a class="reference internal" href="#module-mylib.models" title="mylib.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mylib.models</span></code></a> module provides factory functions for creating neural network models
+suitable for feature selection experiments.</p>
+<section id="create-classification-model">
+<h4>create_classification_model<a class="headerlink" href="#create-classification-model" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">mylib.models.</span></span><span class="sig-name descname"><span class="pre">create_classification_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><span class="pre">Module</span></a></span></span><a class="reference internal" href="../_modules/mylib/models.html#create_classification_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Create a simple feedforward neural network for classification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dim</strong> – Number of input features</p></li>
+<li><p><strong>num_classes</strong> – Number of output classes</p></li>
+<li><p><strong>hidden_dim</strong> – Hidden layer dimension (auto-calculated if None)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>PyTorch sequential model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Creates a feedforward neural network classifier with the following architecture:</p>
+<p><strong>Architecture:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Input (n_features)
+    │
+Linear (n_features -&gt; hidden_dim)
+    │
+BatchNorm1d
+    │
+ReLU
+    │
+Dropout(0.3)
+    │
+Linear (hidden_dim -&gt; hidden_dim//2)
+    │
+BatchNorm1d
+    │
+ReLU
+    │
+Dropout(0.2)
+    │
+Linear (hidden_dim//2 -&gt; num_classes)
+    │
+Output Logits (num_classes)
+</pre></div>
+</div>
+<p><strong>Design Decisions:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Auto-calculated hidden dimensions</strong>
+- Prevents manually specifying size for different problems
+- Hidden size: <span class="math notranslate nohighlight">\(\min(128, \max(64, n_{features}))\)</span>
+- Balances capacity and overfitting risk</p></li>
+<li><p><strong>BatchNorm layers</strong>
+- Stabilizes training
+- Allows higher learning rates
+- Reduces internal covariate shift</p></li>
+<li><p><strong>Dropout for regularization</strong>
+- Reduces overfitting
+- Rates decrease in deeper layers (0.3 → 0.2)
+- Standard practice for neural networks</p></li>
+<li><p><strong>Two hidden layers</strong>
+- Sufficient capacity for most problems
+- Avoids extreme depth (slow training)
+- Good for feature selection experiments</p></li>
+</ol>
+<p><strong>Example Usage:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_classification_model</span>
+
+<span class="c1"># Binary classification with 100 features</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">create_classification_model</span><span class="p">(</span>
+    <span class="n">input_dim</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">num_classes</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>
+
+<span class="c1"># Multi-class (10 classes) with custom hidden dimension</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">create_classification_model</span><span class="p">(</span>
+    <span class="n">input_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span>      <span class="c1"># e.g., MNIST flattened</span>
+    <span class="n">num_classes</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">256</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<p>The model returns logits (unnormalized scores) that should be passed through softmax
+or used with CrossEntropyLoss (which applies softmax internally).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># batch_size=32, features=100</span>
+<span class="n">logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>         <span class="c1"># shape: [32, 2]</span>
+
+<span class="c1"># Use with CrossEntropyLoss</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()(</span><span class="n">logits</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-models">
+<h4>Custom Models<a class="headerlink" href="#custom-models" title="Link to this heading"></a></h4>
+<p>For custom architectures, you can implement your own model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">CustomModel</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">FeatureSelectionTrainer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">selector</span><span class="o">=</span><span class="n">selector</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="selectors.html" class="btn btn-neutral float-left" title="selectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="trainer.html" class="btn btn-neutral float-left" title="trainer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="datasets.html" class="btn btn-neutral float-right" title="datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, MIPT.</p>
+    <p>&#169; Copyright 2025, MIPT Intelligent Systems.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

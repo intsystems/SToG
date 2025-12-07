@@ -9,37 +9,40 @@ SToG: Stochastic Gating for Feature Selection
    :caption: Documentation
    :hidden:
 
+   overview
    installation
-   train
+   quick_start
+   tutorial
    api/index
-   info
+   references
 
-Welcome
-=======
+Welcome to SToG
+===============
 
-SToG is a PyTorch library implementing stochastic gating methods for feature selection.
+SToG is a PyTorch library implementing stochastic gating methods for automatic feature selection in neural networks. 
+The library provides implementations of several state-of-the-art feature selection techniques, from classical 
+L1 regularization to modern continuous relaxation methods.
 
-Key Methods
------------
-
-- **STG** (Stochastic Gates) - Gaussian-based continuous relaxation
-- **STE** (Straight-Through Estimator) - Binary gates with gradient flow
-- **Gumbel-Softmax** - Categorical distribution relaxation
-- **Correlated STG** - For redundant/correlated features
-- **L1** - Baseline L1 regularization
-
-Quick Start
-===========
-
-Installation
+Key Features
 ~~~~~~~~~~~~
 
-.. code-block:: bash
+- **Multiple stochastic gating methods** - STG, STE, Gumbel-Softmax, and variants
+- **Correlated feature handling** - Explicit support for redundant and correlated features  
+- **Flexible architecture** - Base class for implementing custom selectors
+- **Comprehensive benchmarking** - Built-in benchmarking framework for comparison
+- **PyTorch native** - Full integration with PyTorch ecosystem
 
-   pip install stog
+Core Methods Implemented
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Basic Usage
-~~~~~~~~~~~
+- **STG (Stochastic Gates)** - Gaussian-based continuous relaxation for binary gates
+- **STE (Straight-Through Estimator)** - Binary gates with gradient flow approximation
+- **Gumbel-Softmax** - Categorical distribution relaxation with temperature annealing
+- **CorrelatedSTG** - STG variant for redundant feature groups
+- **L1 Regularization** - Baseline method for comparison
+
+Quick Navigation
+================
 
 .. code-block:: python
 
@@ -50,7 +53,7 @@ Basic Usage
    model = create_classification_model(n_features=100, n_classes=2)
    selector = STGLayer(n_features=100, sigma=0.5)
 
-   # Train
+   # Train with feature selection
    trainer = FeatureSelectionTrainer(
        model=model,
        selector=selector,
@@ -60,14 +63,18 @@ Basic Usage
    
    trainer.fit(X_train, y_train, X_val, y_val, epochs=300)
    result = trainer.evaluate(X_test, y_test)
+   print(f"Accuracy: {result['test_acc']:.1f}%")
+   print(f"Selected features: {result['selected_count']}")
 
 Next Steps
-==========
+~~~~~~~~~~
 
-- :doc:`installation` - Installation guide
-- :doc:`train` - Training and benchmarking
-- :doc:`api/index` - API Reference
-- :doc:`info` - About and citation
+- :doc:`overview` - Problem formulation and methodology overview
+- :doc:`installation` - Installation and setup instructions
+- :doc:`quick_start` - Quick start guide with basic examples
+- :doc:`tutorial` - Detailed tutorial with real examples
+- :doc:`api/index` - Complete API reference
+- :doc:`references` - Academic references and citations
 
 .. toctree::
    :maxdepth: 1

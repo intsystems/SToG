@@ -16,6 +16,7 @@
       <script src="../_static/documentation_options.js?v=d45e8c67"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,17 +45,34 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="base.html">base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="selectors.html">selectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer.html">trainer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models.html">models</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="benchmark.html">benchmark</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main.html">main</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-mylib.datasets">Dataset Loading Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mylib.datasets.DatasetLoader"><code class="docutils literal notranslate"><span class="pre">DatasetLoader</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#datasetloader">DatasetLoader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">DatasetLoader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html">benchmark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#module-overview">Module Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#design-philosophy">Design Philosophy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">SToG: Stochastic Gating for Feature Selection</a></li>
@@ -87,6 +105,311 @@
              
   <section id="datasets">
 <h1>datasets<a class="headerlink" href="#datasets" title="Link to this heading"></a></h1>
+<section id="module-mylib.datasets">
+<span id="dataset-loading-utilities"></span><h2>Dataset Loading Utilities<a class="headerlink" href="#module-mylib.datasets" title="Link to this heading"></a></h2>
+<p>Dataset loading utilities.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mylib.datasets.DatasetLoader">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mylib.datasets.</span></span><span class="sig-name descname"><span class="pre">DatasetLoader</span></span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.datasets.DatasetLoader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Load and prepare datasets for benchmarking.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.datasets.DatasetLoader.load_breast_cancer">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_breast_cancer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_breast_cancer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.datasets.DatasetLoader.load_breast_cancer" title="Link to this definition"></a></dt>
+<dd><p>Load breast cancer dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.datasets.DatasetLoader.load_wine">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_wine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_wine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.datasets.DatasetLoader.load_wine" title="Link to this definition"></a></dt>
+<dd><p>Load wine dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.datasets.DatasetLoader.create_synthetic_high_dim">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_synthetic_high_dim</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_high_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.datasets.DatasetLoader.create_synthetic_high_dim" title="Link to this definition"></a></dt>
+<dd><p>Create synthetic high-dimensional dataset (MADELON-like).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.datasets.DatasetLoader.create_synthetic_correlated">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_synthetic_correlated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_correlated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.datasets.DatasetLoader.create_synthetic_correlated" title="Link to this definition"></a></dt>
+<dd><p>Create synthetic dataset with correlated features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="datasetloader">
+<h2>DatasetLoader<a class="headerlink" href="#datasetloader" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mylib.datasets.</span></span><span class="sig-name descname"><span class="pre">DatasetLoader</span></span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Load and prepare datasets for benchmarking.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_breast_cancer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_breast_cancer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Load breast cancer dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_wine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_wine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>Load wine dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_synthetic_high_dim</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_high_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd><p>Create synthetic high-dimensional dataset (MADELON-like).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_synthetic_correlated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_correlated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Create synthetic dataset with correlated features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
+<p>The <a class="reference internal" href="generated/mylib.datasets.html#mylib.datasets.DatasetLoader" title="mylib.datasets.DatasetLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.datasets.DatasetLoader</span></code></a> provides static methods to load benchmark datasets
+suitable for feature selection experiments.</p>
+<section id="available-datasets">
+<h4>Available Datasets<a class="headerlink" href="#available-datasets" title="Link to this heading"></a></h4>
+<p>All loaders return a dictionary with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>              <span class="c1"># Dataset name</span>
+    <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>             <span class="c1"># Feature matrix [n_samples, n_features]</span>
+    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>             <span class="c1"># Target labels [n_samples]</span>
+    <span class="s1">&#39;n_important&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>       <span class="c1"># Number of truly informative features</span>
+    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="nb">str</span>        <span class="c1"># Dataset description</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="breast-cancer-dataset">
+<h4>Breast Cancer Dataset<a class="headerlink" href="#breast-cancer-dataset" title="Link to this heading"></a></h4>
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DatasetLoader.</span></span><span class="sig-name descname"><span class="pre">load_breast_cancer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_breast_cancer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dd><p>Load breast cancer dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt><strong>Properties:</strong></dt><dd><ul class="simple">
+<li><p>569 samples</p></li>
+<li><p>30 features</p></li>
+<li><p>Binary classification (malignant vs. benign)</p></li>
+<li><p>~10 informative features</p></li>
+<li><p>Real-world dataset (UCI repository)</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Use case:</strong> General feature selection testing</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatasetLoader</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Informative features: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;n_important&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="wine-dataset">
+<h4>Wine Dataset<a class="headerlink" href="#wine-dataset" title="Link to this heading"></a></h4>
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DatasetLoader.</span></span><span class="sig-name descname"><span class="pre">load_wine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_wine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dd><p>Load wine dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt><strong>Properties:</strong></dt><dd><ul class="simple">
+<li><p>178 samples</p></li>
+<li><p>13 features</p></li>
+<li><p>3-class classification</p></li>
+<li><p>~7 informative features</p></li>
+<li><p>Real-world dataset (UCI repository)</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Use case:</strong> Multi-class feature selection</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="o">.</span><span class="n">load_wine</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Classes: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="synthetic-high-dimensional-dataset">
+<h4>Synthetic High-Dimensional Dataset<a class="headerlink" href="#synthetic-high-dimensional-dataset" title="Link to this heading"></a></h4>
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DatasetLoader.</span></span><span class="sig-name descname"><span class="pre">create_synthetic_high_dim</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_high_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id7" title="Link to this definition"></a></dt>
+<dd><p>Create synthetic high-dimensional dataset (MADELON-like).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt><strong>Properties:</strong></dt><dd><ul class="simple">
+<li><p>600 samples</p></li>
+<li><p>100 features</p></li>
+<li><p>Binary classification</p></li>
+<li><p>5 informative features</p></li>
+<li><p>10 redundant features</p></li>
+<li><p>85 noise features</p></li>
+<li><p>Class imbalance: ~3%</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Use case:</strong> High-dimensional feature selection testing</p>
+<p><strong>Generated via:</strong> scikit-learn’s <code class="docutils literal notranslate"><span class="pre">make_classification</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="o">.</span><span class="n">create_synthetic_high_dim</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sparsity level: </span><span class="si">{</span><span class="mi">5</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="synthetic-correlated-features-dataset">
+<h4>Synthetic Correlated Features Dataset<a class="headerlink" href="#synthetic-correlated-features-dataset" title="Link to this heading"></a></h4>
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DatasetLoader.</span></span><span class="sig-name descname"><span class="pre">create_synthetic_correlated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_correlated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id8" title="Link to this definition"></a></dt>
+<dd><p>Create synthetic dataset with correlated features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt><strong>Properties:</strong></dt><dd><ul class="simple">
+<li><p>500 samples</p></li>
+<li><p>50 features</p></li>
+<li><p>Binary classification</p></li>
+<li><p>5 core informative features</p></li>
+<li><p>10 correlated copies (2 per core feature)</p></li>
+<li><p>35 noise features</p></li>
+<li><p>Target: <span class="math notranslate nohighlight">\(y = \mathbb{1}[x_1 + x_2 \cdot x_3 &gt; 0]\)</span></p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Use case:</strong> Testing with correlated features</p>
+<dl class="simple">
+<dt><strong>Characteristics:</strong></dt><dd><ul class="simple">
+<li><p>Features 0-4: core informative</p></li>
+<li><p>Features 5-14: noisy copies of core features</p></li>
+<li><p>Features 15-49: pure noise</p></li>
+<li><p>High correlation: 0.9+ between core and copies</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="o">.</span><span class="n">create_synthetic_correlated</span><span class="p">()</span>
+<span class="c1"># Use with CorrelatedSTGLayer for best results</span>
+</pre></div>
+</div>
+</section>
+<section id="full-benchmarking-example">
+<h4>Full Benchmarking Example<a class="headerlink" href="#full-benchmarking-example" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatasetLoader</span><span class="p">,</span> <span class="n">ComprehensiveBenchmark</span>
+
+<span class="n">loader</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="p">()</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">(),</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">load_wine</span><span class="p">(),</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">create_synthetic_high_dim</span><span class="p">(),</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">create_synthetic_correlated</span><span class="p">(),</span>
+<span class="p">]</span>
+
+<span class="n">benchmark</span> <span class="o">=</span> <span class="n">ComprehensiveBenchmark</span><span class="p">()</span>
+<span class="n">benchmark</span><span class="o">.</span><span class="n">run_benchmark</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="data-preprocessing">
+<h4>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Link to this heading"></a></h4>
+<p>Recommended preprocessing pipeline:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
+
+<span class="c1"># 1. Standardize features</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># 2. Split data</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+
+<span class="c1"># 3. Convert to tensors</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
 </section>
 
 
@@ -100,7 +423,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, MIPT.</p>
+    <p>&#169; Copyright 2025, MIPT Intelligent Systems.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

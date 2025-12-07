@@ -16,6 +16,7 @@
       <script src="../_static/documentation_options.js?v=d45e8c67"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,17 +45,35 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="base.html">base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="selectors.html">selectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer.html">trainer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models.html">models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="datasets.html">datasets</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">benchmark</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main.html">main</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">benchmark</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-mylib.benchmark">Benchmarking Framework</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mylib.benchmark.ComprehensiveBenchmark"><code class="docutils literal notranslate"><span class="pre">ComprehensiveBenchmark</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mylib.benchmark.compare_with_l1_sklearn"><code class="docutils literal notranslate"><span class="pre">compare_with_l1_sklearn()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#comprehensivebenchmark">ComprehensiveBenchmark</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">ComprehensiveBenchmark</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#module-overview">Module Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#design-philosophy">Design Philosophy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">SToG: Stochastic Gating for Feature Selection</a></li>
@@ -87,6 +106,349 @@
              
   <section id="benchmark">
 <h1>benchmark<a class="headerlink" href="#benchmark" title="Link to this heading"></a></h1>
+<section id="module-mylib.benchmark">
+<span id="benchmarking-framework"></span><h2>Benchmarking Framework<a class="headerlink" href="#module-mylib.benchmark" title="Link to this heading"></a></h2>
+<p>Benchmarking utilities for feature selection methods.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mylib.benchmark.ComprehensiveBenchmark">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mylib.benchmark.</span></span><span class="sig-name descname"><span class="pre">ComprehensiveBenchmark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.benchmark.ComprehensiveBenchmark" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Comprehensive benchmark for all feature selection methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.benchmark.ComprehensiveBenchmark.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.benchmark.ComprehensiveBenchmark.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize benchmark.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> – Device to run on (‘cpu’ or ‘cuda’)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.benchmark.ComprehensiveBenchmark.run_single_experiment">
+<span class="sig-name descname"><span class="pre">run_single_experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark.run_single_experiment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.benchmark.ComprehensiveBenchmark.run_single_experiment" title="Link to this definition"></a></dt>
+<dd><p>Run a single experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_info</strong> – Dictionary with dataset information</p></li>
+<li><p><strong>method_name</strong> – Name of the method to test</p></li>
+<li><p><strong>lambda_reg</strong> – Regularization strength</p></li>
+<li><p><strong>random_state</strong> – Random seed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.benchmark.ComprehensiveBenchmark.evaluate_method">
+<span class="sig-name descname"><span class="pre">evaluate_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_runs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark.evaluate_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.benchmark.ComprehensiveBenchmark.evaluate_method" title="Link to this definition"></a></dt>
+<dd><p>Evaluate a method with multiple lambda values and runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_info</strong> – Dictionary with dataset information</p></li>
+<li><p><strong>method_name</strong> – Name of the method to test</p></li>
+<li><p><strong>lambda_values</strong> – List of lambda values to try</p></li>
+<li><p><strong>n_runs</strong> – Number of runs per lambda value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with best results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.benchmark.ComprehensiveBenchmark.run_benchmark">
+<span class="sig-name descname"><span class="pre">run_benchmark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark.run_benchmark"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.benchmark.ComprehensiveBenchmark.run_benchmark" title="Link to this definition"></a></dt>
+<dd><p>Run complete benchmark.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>datasets</strong> – List of dataset info dictionaries (uses default if None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mylib.benchmark.ComprehensiveBenchmark.print_summary">
+<span class="sig-name descname"><span class="pre">print_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark.print_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.benchmark.ComprehensiveBenchmark.print_summary" title="Link to this definition"></a></dt>
+<dd><p>Print summary table of benchmark results.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mylib.benchmark.compare_with_l1_sklearn">
+<span class="sig-prename descclassname"><span class="pre">mylib.benchmark.</span></span><span class="sig-name descname"><span class="pre">compare_with_l1_sklearn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#compare_with_l1_sklearn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.benchmark.compare_with_l1_sklearn" title="Link to this definition"></a></dt>
+<dd><p>Compare with sklearn L1 logistic regression baseline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>datasets</strong> – List of dataset info dictionaries</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with sklearn results</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="comprehensivebenchmark">
+<h2>ComprehensiveBenchmark<a class="headerlink" href="#comprehensivebenchmark" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mylib.benchmark.</span></span><span class="sig-name descname"><span class="pre">ComprehensiveBenchmark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Comprehensive benchmark for all feature selection methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Initialize benchmark.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> – Device to run on (‘cpu’ or ‘cuda’)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">run_single_experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark.run_single_experiment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>Run a single experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_info</strong> – Dictionary with dataset information</p></li>
+<li><p><strong>method_name</strong> – Name of the method to test</p></li>
+<li><p><strong>lambda_reg</strong> – Regularization strength</p></li>
+<li><p><strong>random_state</strong> – Random seed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">evaluate_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_runs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark.evaluate_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd><p>Evaluate a method with multiple lambda values and runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_info</strong> – Dictionary with dataset information</p></li>
+<li><p><strong>method_name</strong> – Name of the method to test</p></li>
+<li><p><strong>lambda_values</strong> – List of lambda values to try</p></li>
+<li><p><strong>n_runs</strong> – Number of runs per lambda value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with best results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">run_benchmark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark.run_benchmark"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Run complete benchmark.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>datasets</strong> – List of dataset info dictionaries (uses default if None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">print_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#ComprehensiveBenchmark.print_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dd><p>Print summary table of benchmark results.</p>
+</dd></dl>
+
+</dd></dl>
+
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
+<p>The <a class="reference internal" href="generated/mylib.benchmark.html#mylib.benchmark.ComprehensiveBenchmark" title="mylib.benchmark.ComprehensiveBenchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.benchmark.ComprehensiveBenchmark</span></code></a> provides a framework for systematically
+comparing feature selection methods across multiple datasets and hyperparameter settings.</p>
+<section id="features">
+<h4>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>Multi-method comparison</strong> - STG, STE, Gumbel, CorrelatedSTG, L1</p></li>
+<li><p><strong>Multiple datasets</strong> - Real and synthetic benchmark datasets</p></li>
+<li><p><strong>Lambda search</strong> - Automatic grid search for optimal sparsity parameter</p></li>
+<li><p><strong>Results aggregation</strong> - Summary statistics and comparison tables</p></li>
+<li><p><strong>Result persistence</strong> - Option to save results for later analysis</p></li>
+</ul>
+</section>
+<section id="benchmarking-pipeline">
+<h4>Benchmarking Pipeline<a class="headerlink" href="#benchmarking-pipeline" title="Link to this heading"></a></h4>
+<p>The benchmark runs the following pipeline for each method/dataset combination:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>For each dataset:
+    For each lambda in [0.001, 0.01, 0.05, 0.1, 0.2, ...]:
+        For each feature selection method:
+            1. Create fresh model and selector
+            2. Initialize trainer with current λ
+            3. Train for up to 300 epochs with early stopping
+            4. Evaluate on test set
+            5. Record: accuracy, selected count, sparsity
+            6. Select best λ by balanced score:
+               score = accuracy - 0.5 * |selected - target|
+            7. Report best result
+</pre></div>
+</div>
+</section>
+<section id="running-benchmarks">
+<h4>Running Benchmarks<a class="headerlink" href="#running-benchmarks" title="Link to this heading"></a></h4>
+<p><strong>Basic Usage:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComprehensiveBenchmark</span>
+
+<span class="n">benchmark</span> <span class="o">=</span> <span class="n">ComprehensiveBenchmark</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">benchmark</span><span class="o">.</span><span class="n">run_benchmark</span><span class="p">()</span>  <span class="c1"># Uses default datasets</span>
+</pre></div>
+</div>
+<p><strong>Custom Datasets:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatasetLoader</span><span class="p">,</span> <span class="n">ComprehensiveBenchmark</span>
+
+<span class="n">loader</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="p">()</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">(),</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">create_synthetic_high_dim</span><span class="p">(),</span>
+<span class="p">]</span>
+
+<span class="n">benchmark</span> <span class="o">=</span> <span class="n">ComprehensiveBenchmark</span><span class="p">()</span>
+<span class="n">benchmark</span><span class="o">.</span><span class="n">run_benchmark</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>GPU Acceleration:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">benchmark</span> <span class="o">=</span> <span class="n">ComprehensiveBenchmark</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+<span class="n">benchmark</span><span class="o">.</span><span class="n">run_benchmark</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="output-format">
+<h4>Output Format<a class="headerlink" href="#output-format" title="Link to this heading"></a></h4>
+<p>Benchmark prints results in tabular format:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>==================== Breast Cancer ====================
+
+Method        | Accuracy  | Selected | Sparsity | Lambda
+______________|___________|__________|__________|________
+STG           | 95.67 %   | 8 / 30   | 73.3%    | 0.050
+STE           | 95.08 %   | 10 / 30  | 66.7%    | 0.050
+Gumbel        | 96.04 %   | 9 / 30   | 70.0%    | 0.050
+CorrelatedSTG | 96.04 %   | 9 / 30   | 70.0%    | 0.050
+L1            | 94.29 %   | 12 / 30  | 60.0%    | 0.050
+</pre></div>
+</div>
+</section>
+<section id="lambda-grid-search">
+<h4>Lambda Grid Search<a class="headerlink" href="#lambda-grid-search" title="Link to this heading"></a></h4>
+<p>By default, tests these lambda values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lambdas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>For each method/dataset, the benchmark:</p>
+<ol class="arabic simple">
+<li><p>Trains multiple models with different λ</p></li>
+<li><p>Selects best λ using balanced score</p></li>
+<li><p>Reports results for best λ</p></li>
+</ol>
+<p><strong>Score Formula:</strong></p>
+<div class="math notranslate nohighlight">
+\[\text{score}(\lambda) = \text{accuracy} - 0.5 \cdot |\text{selected\_count} - \text{target\_count}|\]</div>
+<p>This balances:
+- <strong>Accuracy:</strong> higher is better (coefficient +1)
+- <strong>Sparsity:</strong> lower selected count is better (coefficient -0.5)
+- <strong>Bias:</strong> targets approximately target_count features</p>
+</section>
+<section id="lambda-interpretation">
+<h4>Lambda Interpretation<a class="headerlink" href="#lambda-interpretation" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> too small: selects too many features</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> optimal: achieves target sparsity with high accuracy</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> too large: selects too few features, drops accuracy</p></li>
+</ul>
+</section>
+<section id="comparison-with-scikit-learn-l1">
+<h4>Comparison with Scikit-learn L1<a class="headerlink" href="#comparison-with-scikit-learn-l1" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-prename descclassname"><span class="pre">mylib.benchmark.</span></span><span class="sig-name descname"><span class="pre">compare_with_l1_sklearn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/benchmark.html#compare_with_l1_sklearn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dd><p>Compare with sklearn L1 logistic regression baseline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>datasets</strong> – List of dataset info dictionaries</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with sklearn results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Compares SToG methods against scikit-learn’s L1-regularized classifiers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">compare_with_l1_sklearn</span><span class="p">,</span> <span class="n">DatasetLoader</span>
+
+<span class="n">loader</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="p">()</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">loader</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">()]</span>
+
+<span class="n">compare_with_l1_sklearn</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="example-running-full-benchmark">
+<h4>Example: Running Full Benchmark<a class="headerlink" href="#example-running-full-benchmark" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComprehensiveBenchmark</span><span class="p">,</span> <span class="n">DatasetLoader</span>
+
+<span class="c1"># Load datasets</span>
+<span class="n">loader</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="p">()</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">(),</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">load_wine</span><span class="p">(),</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">create_synthetic_high_dim</span><span class="p">(),</span>
+    <span class="n">loader</span><span class="o">.</span><span class="n">create_synthetic_correlated</span><span class="p">(),</span>
+<span class="p">]</span>
+
+<span class="c1"># Run benchmark</span>
+<span class="n">benchmark</span> <span class="o">=</span> <span class="n">ComprehensiveBenchmark</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">benchmark</span><span class="o">.</span><span class="n">run_benchmark</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+
+<span class="c1"># Also compare with sklearn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">compare_with_l1_sklearn</span>
+<span class="n">compare_with_l1_sklearn</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="interpreting-results">
+<h4>Interpreting Results<a class="headerlink" href="#interpreting-results" title="Link to this heading"></a></h4>
+<p>Key metrics to analyze:</p>
+<dl class="simple">
+<dt><strong>Accuracy:</strong></dt><dd><p>How well the model generalizes on test set. Should be high.</p>
+</dd>
+<dt><strong>Selected Count:</strong></dt><dd><p>Number of features chosen by the selector.
+- Too low: may lose important information
+- Too high: defeats purpose of feature selection
+- Optimal: depends on problem, typically 10-30% of original</p>
+</dd>
+<dt><strong>Sparsity:</strong></dt><dd><p>Percentage of features discarded (1 - selected/total).
+Higher sparsity means more aggressive selection.</p>
+</dd>
+<dt><strong>Method Ranking:</strong></dt><dd><ul class="simple">
+<li><p>STG/CorrelatedSTG: most balanced</p></li>
+<li><p>STE: fastest convergence</p></li>
+<li><p>Gumbel: good for probabilistic interpretation</p></li>
+<li><p>L1: simple baseline</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+</section>
 </section>
 
 
@@ -100,7 +462,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, MIPT.</p>
+    <p>&#169; Copyright 2025, MIPT Intelligent Systems.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

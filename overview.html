@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; SToG 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="SToG: Stochastic Gating for Feature Selection" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3f51b5" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SToG
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#problem-formulation">Problem Formulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stochastic-gating-approach">Stochastic Gating Approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methods-overview">Methods Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stochastic-gates-stg">Stochastic Gates (STG)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#straight-through-estimator-ste">Straight-Through Estimator (STE)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gumbel-softmax">Gumbel-Softmax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correlated-stg">Correlated STG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l1-regularization">L1 Regularization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#training-strategy">Training Strategy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#joint-optimization">Joint Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#early-stopping">Early Stopping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lambda-selection">Lambda Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">SToG: Stochastic Gating for Feature Selection</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3f51b5" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SToG</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<section id="problem-formulation">
+<h2>Problem Formulation<a class="headerlink" href="#problem-formulation" title="Link to this heading"></a></h2>
+<p>Feature selection is the problem of identifying a subset of relevant features for model training.
+In high-dimensional settings, many features may be redundant or irrelevant, leading to:</p>
+<ul class="simple">
+<li><p>Increased computational cost</p></li>
+<li><p>Reduced model interpretability</p></li>
+<li><p>Risk of overfitting to noise</p></li>
+<li><p>Difficulty in feature engineering for domain experts</p></li>
+</ul>
+<p>The feature selection problem can be formulated as follows. Given a dataset
+<span class="math notranslate nohighlight">\(\{(\mathbf{x}_i, y_i)\}_{i=1}^{n}\)</span> where <span class="math notranslate nohighlight">\(\mathbf{x}_i \in \mathbb{R}^d\)</span>
+and <span class="math notranslate nohighlight">\(y_i\)</span> is a target, we seek to learn both a selection mechanism and a predictor model:</p>
+<div class="math notranslate nohighlight">
+\[\min_{\mathbf{g}, \mathbf{f}} \mathcal{L}(\mathbf{g}, \mathbf{f}) + \lambda \Omega(\mathbf{g})\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{g}(\mathbf{x}) \in \{0, 1\}^d\)</span> is a discrete feature selector</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}\)</span> is the prediction model</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}\)</span> is the task loss (e.g., classification loss)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega(\mathbf{g})\)</span> encourages sparsity</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> balances accuracy vs. sparsity</p></li>
+</ul>
+</section>
+<section id="stochastic-gating-approach">
+<h2>Stochastic Gating Approach<a class="headerlink" href="#stochastic-gating-approach" title="Link to this heading"></a></h2>
+<p>The challenge is that directly optimizing discrete gates <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> is intractable.
+Stochastic gating methods replace discrete variables with continuous relaxations:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{z}_d = \mu_d + \sigma \cdot \epsilon, \quad \epsilon \sim \mathcal{N}(0, 1)\]</div>
+<p>The continuous variables <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> are passed through a smooth mapping to approximate
+binary gates, enabling gradient-based optimization while maintaining the sparsity-inducing property.</p>
+</section>
+<section id="methods-overview">
+<h2>Methods Overview<a class="headerlink" href="#methods-overview" title="Link to this heading"></a></h2>
+<section id="stochastic-gates-stg">
+<h3>Stochastic Gates (STG)<a class="headerlink" href="#stochastic-gates-stg" title="Link to this heading"></a></h3>
+<p>Based on Yamada et al. (2020), STG uses Gaussian relaxation to approximate Bernoulli variables.</p>
+<p><strong>Forward pass:</strong>
+- Sample from Gaussian: <span class="math notranslate nohighlight">\(z_d = \mu_d + \sigma \epsilon_d\)</span>
+- Apply hard clipping: <span class="math notranslate nohighlight">\(\tilde{z}_d = \text{clamp}(z_d, [0, 1])\)</span>
+- Gate features: <span class="math notranslate nohighlight">\(\tilde{\mathbf{x}} = \tilde{\mathbf{z}} \odot \mathbf{x}\)</span></p>
+<p><strong>At inference:</strong> Use deterministic gates <span class="math notranslate nohighlight">\(\tilde{z}_d = \text{clamp}(\mu_d, [0, 1])\)</span></p>
+<p><strong>Regularization:</strong> Encourages sparse selection via:</p>
+<div class="math notranslate nohighlight">
+\[\Omega(\mu, \sigma) = \sum_{d=1}^{D} P(z_d &gt; 0) = \sum_{d=1}^{D} \Phi\left(\frac{\mu_d}{\sigma}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Phi\)</span> is the cumulative normal distribution.</p>
+</section>
+<section id="straight-through-estimator-ste">
+<h3>Straight-Through Estimator (STE)<a class="headerlink" href="#straight-through-estimator-ste" title="Link to this heading"></a></h3>
+<p>Based on Bengio et al. (2013), STE uses binary gates with gradient approximation.</p>
+<p><strong>Forward pass:</strong>
+- Compute probabilities: <span class="math notranslate nohighlight">\(p_d = \sigma(\text{logit}_d)\)</span>
+- Hard binarization: <span class="math notranslate nohighlight">\(g_d = \begin{cases} 1 &amp; p_d &gt; 0.5 \\ 0 &amp; \text{otherwise} \end{cases}\)</span>
+- Gate features: <span class="math notranslate nohighlight">\(\tilde{\mathbf{x}} = \mathbf{g} \odot \mathbf{x}\)</span></p>
+<p><strong>Gradient approximation:</strong> Straight-through allows backpropagation through the binarization:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial g_d}{\partial \text{logit}_d} \approx \frac{\partial p_d}{\partial \text{logit}_d}\]</div>
+<p><strong>Regularization:</strong></p>
+<div class="math notranslate nohighlight">
+\[\Omega(p) = \sum_{d=1}^{D} p_d\]</div>
+</section>
+<section id="gumbel-softmax">
+<h3>Gumbel-Softmax<a class="headerlink" href="#gumbel-softmax" title="Link to this heading"></a></h3>
+<p>Based on Jang et al. (2017), uses categorical distribution relaxation.</p>
+<p><strong>Key idea:</strong> Treat feature selection as categorical choice between {off, on} states.</p>
+<p><strong>Forward pass (training):</strong>
+- Apply Gumbel-Softmax with temperature <span class="math notranslate nohighlight">\(\tau\)</span>
+- Use hard=True for discrete samples during forward pass
+- Temperature annealing: <span class="math notranslate nohighlight">\(\tau \to 0\)</span> during training</p>
+<p><strong>Forward pass (inference):</strong> Select argmax state</p>
+<p><strong>Regularization:</strong> Probability of on state:</p>
+<div class="math notranslate nohighlight">
+\[\Omega = \sum_{d=1}^{D} p(z_{d,\text{on}} = 1 | \text{logits}_d)\]</div>
+</section>
+<section id="correlated-stg">
+<h3>Correlated STG<a class="headerlink" href="#correlated-stg" title="Link to this heading"></a></h3>
+<p>Extension of STG for datasets with correlated features.</p>
+<p><strong>Motivation:</strong> When features are highly correlated, independent selection can lead to
+selecting all correlated copies. CorrelatedSTG uses group regularization.</p>
+<p><strong>Key addition:</strong> Feature correlation structure <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> informed regularization:</p>
+<div class="math notranslate nohighlight">
+\[\Omega_{\text{corr}}(\mu, \mathbf{C}) = \sum_{d=1}^{D} \Phi\left(\frac{\mu_d}{\sigma}\right) +
+\alpha \sum_{d,d'} C_{dd'} \left(\Phi\left(\frac{\mu_d}{\sigma}\right) - \Phi\left(\frac{\mu_{d'}}{\sigma}\right)\right)^2\]</div>
+</section>
+<section id="l1-regularization">
+<h3>L1 Regularization<a class="headerlink" href="#l1-regularization" title="Link to this heading"></a></h3>
+<p>Baseline method using L1 penalty on feature weights.</p>
+<p><strong>Model:</strong> Learn weights <span class="math notranslate nohighlight">\(\mathbf{w} \in \mathbb{R}^d\)</span> directly:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{\mathbf{x}} = \mathbf{w} \odot \mathbf{x}\]</div>
+<p><strong>Regularization:</strong></p>
+<div class="math notranslate nohighlight">
+\[\Omega(w) = \sum_{d=1}^{D} |w_d|\]</div>
+<p><strong>Interpretation:</strong> Weights <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> indirectly indicate feature importance.</p>
+</section>
+</section>
+<section id="training-strategy">
+<h2>Training Strategy<a class="headerlink" href="#training-strategy" title="Link to this heading"></a></h2>
+<section id="joint-optimization">
+<h3>Joint Optimization<a class="headerlink" href="#joint-optimization" title="Link to this heading"></a></h3>
+<p>The model and feature selector are optimized jointly:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{task}}(\mathbf{f}, \mathbf{g}) + \lambda \Omega(\mathbf{g})\]</div>
+<p><strong>Two-optimizer approach:</strong></p>
+<ul class="simple">
+<li><p>Optimizer 1 (model): lower learning rate (e.g., <span class="math notranslate nohighlight">\(\eta_m = 0.001\)</span>)</p></li>
+<li><p>Optimizer 2 (selector): higher learning rate (e.g., <span class="math notranslate nohighlight">\(\eta_s = 0.01\)</span>)</p></li>
+</ul>
+<p>Higher selector learning rate allows gates to adapt quickly to the task.</p>
+</section>
+<section id="early-stopping">
+<h3>Early Stopping<a class="headerlink" href="#early-stopping" title="Link to this heading"></a></h3>
+<p>Training uses validation-based early stopping:</p>
+<ol class="arabic simple">
+<li><p>Monitor validation accuracy</p></li>
+<li><p>Save best model state when validation metric improves</p></li>
+<li><p>Stop if no improvement for <em>patience</em> epochs (default: 50)</p></li>
+<li><p>Requires at least 100 epochs before stopping</p></li>
+</ol>
+</section>
+<section id="lambda-selection">
+<h3>Lambda Selection<a class="headerlink" href="#lambda-selection" title="Link to this heading"></a></h3>
+<p>The sparsity parameter <span class="math notranslate nohighlight">\(\lambda\)</span> controls the trade-off between accuracy and feature count.
+SToG includes grid search for optimal <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\text{score}(\lambda) = \text{accuracy} - 0.5 \cdot |\text{selected\_count} - \text{target\_count}|\]</div>
+<p>This balances achieving target sparsity while maintaining high accuracy.</p>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<p>For detailed references, see <a class="reference internal" href="references.html"><span class="doc">References</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="SToG: Stochastic Gating for Feature Selection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, MIPT Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

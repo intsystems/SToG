@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation.html" /> 
+    <link rel="next" title="Overview" href="overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,8 +43,12 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">SToG: Stochastic Gating for Feature Selection</a></li>
@@ -79,25 +83,34 @@
 <p><strong>Feature selection using stochastic gating methods for neural networks</strong></p>
 <div class="toctree-wrapper compound">
 </div>
-<section id="welcome">
-<h2>Welcome<a class="headerlink" href="#welcome" title="Link to this heading"></a></h2>
-<p>SToG is a PyTorch library implementing stochastic gating methods for feature selection.</p>
-<section id="key-methods">
-<h3>Key Methods<a class="headerlink" href="#key-methods" title="Link to this heading"></a></h3>
+<section id="welcome-to-stog">
+<h2>Welcome to SToG<a class="headerlink" href="#welcome-to-stog" title="Link to this heading"></a></h2>
+<p>SToG is a PyTorch library implementing stochastic gating methods for automatic feature selection in neural networks.
+The library provides implementations of several state-of-the-art feature selection techniques, from classical
+L1 regularization to modern continuous relaxation methods.</p>
+<section id="key-features">
+<h3>Key Features<a class="headerlink" href="#key-features" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p><strong>STG</strong> (Stochastic Gates) - Gaussian-based continuous relaxation</p></li>
-<li><p><strong>STE</strong> (Straight-Through Estimator) - Binary gates with gradient flow</p></li>
-<li><p><strong>Gumbel-Softmax</strong> - Categorical distribution relaxation</p></li>
-<li><p><strong>Correlated STG</strong> - For redundant/correlated features</p></li>
-<li><p><strong>L1</strong> - Baseline L1 regularization</p></li>
+<li><p><strong>Multiple stochastic gating methods</strong> - STG, STE, Gumbel-Softmax, and variants</p></li>
+<li><p><strong>Correlated feature handling</strong> - Explicit support for redundant and correlated features</p></li>
+<li><p><strong>Flexible architecture</strong> - Base class for implementing custom selectors</p></li>
+<li><p><strong>Comprehensive benchmarking</strong> - Built-in benchmarking framework for comparison</p></li>
+<li><p><strong>PyTorch native</strong> - Full integration with PyTorch ecosystem</p></li>
+</ul>
+</section>
+<section id="core-methods-implemented">
+<h3>Core Methods Implemented<a class="headerlink" href="#core-methods-implemented" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>STG (Stochastic Gates)</strong> - Gaussian-based continuous relaxation for binary gates</p></li>
+<li><p><strong>STE (Straight-Through Estimator)</strong> - Binary gates with gradient flow approximation</p></li>
+<li><p><strong>Gumbel-Softmax</strong> - Categorical distribution relaxation with temperature annealing</p></li>
+<li><p><strong>CorrelatedSTG</strong> - STG variant for redundant feature groups</p></li>
+<li><p><strong>L1 Regularization</strong> - Baseline method for comparison</p></li>
 </ul>
 </section>
 </section>
-<section id="quick-start">
-<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>stog
-</pre></div>
-</div>
+<section id="quick-navigation">
+<h2>Quick Navigation<a class="headerlink" href="#quick-navigation" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">STGLayer</span><span class="p">,</span> <span class="n">FeatureSelectionTrainer</span><span class="p">,</span> <span class="n">create_classification_model</span>
 
@@ -105,7 +118,7 @@
 <span class="n">model</span> <span class="o">=</span> <span class="n">create_classification_model</span><span class="p">(</span><span class="n">n_features</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">selector</span> <span class="o">=</span> <span class="n">STGLayer</span><span class="p">(</span><span class="n">n_features</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
-<span class="c1"># Train</span>
+<span class="c1"># Train with feature selection</span>
 <span class="n">trainer</span> <span class="o">=</span> <span class="n">FeatureSelectionTrainer</span><span class="p">(</span>
     <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
     <span class="n">selector</span><span class="o">=</span><span class="n">selector</span><span class="p">,</span>
@@ -115,19 +128,23 @@
 
 <span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;test_acc&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected features: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;selected_count&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
 <section id="next-steps">
-<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<h3>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p><a class="reference internal" href="installation.html"><span class="doc">Installation</span></a> - Installation guide</p></li>
-<li><p><span class="xref std std-doc">train</span> - Training and benchmarking</p></li>
-<li><p><a class="reference internal" href="api/index.html"><span class="doc">API Reference</span></a> - API Reference</p></li>
-<li><p><span class="xref std std-doc">info</span> - About and citation</p></li>
+<li><p><a class="reference internal" href="overview.html"><span class="doc">Overview</span></a> - Problem formulation and methodology overview</p></li>
+<li><p><a class="reference internal" href="installation.html"><span class="doc">Installation</span></a> - Installation and setup instructions</p></li>
+<li><p><a class="reference internal" href="quick_start.html"><span class="doc">Quick Start</span></a> - Quick start guide with basic examples</p></li>
+<li><p><a class="reference internal" href="tutorial.html"><span class="doc">Tutorial</span></a> - Detailed tutorial with real examples</p></li>
+<li><p><a class="reference internal" href="api/index.html"><span class="doc">API Reference</span></a> - Complete API reference</p></li>
+<li><p><a class="reference internal" href="references.html"><span class="doc">References</span></a> - Academic references and citations</p></li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 </section>
 
@@ -135,13 +152,13 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, MIPT.</p>
+    <p>&#169; Copyright 2025, MIPT Intelligent Systems.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
