@@ -1,40 +1,62 @@
-|test| |codecov| |docs|
+.. image:: https://raw.githubusercontent.com/intsystems/SToG/master/figures/logo_stog.png
+    :width: 400
+    :align: center
+    :alt: SToG Logo
+
+|test| |docs|
 
 .. |test| image:: https://github.com/intsystems/SToG/workflows/test/badge.svg
-    :target: https://github.com/intsystems/SToG/tree/master
+    :target: https://github.com/intsystems/SToG/actions/workflows/test.yaml
     :alt: Test status
-    
-.. |codecov| image:: https://img.shields.io/codecov/c/github/intsystems/SToG/master
-    :target: https://app.codecov.io/gh/intsystems/SToG
-    :alt: Test coverage
-    
+
 .. |docs| image:: https://github.com/intsystems/SToG/workflows/docs/badge.svg
     :target: https://intsystems.github.io/SToG/
     :alt: Docs status
 
+SToG: Stochastic Gates for Feature Selection
+============================================
 
-.. class:: center
+**SToG** (Stochastic Gates) is a PyTorch-based library designed for efficient and differentiable feature selection in neural networks. It implements various stochastic gating mechanisms that allow models to learn sparse feature representations end-to-end.
 
-    :Название исследуемой задачи: Мое название работы
-    :Тип научной работы: M1P/НИР/CoIS
-    :Автор: Имя Отчество Фамилия
-    :Научный руководитель: степень, Фамилия Имя Отчество
-    :Научный консультант(при наличии): степень, Фамилия Имя Отчество
+The library includes implementations of:
+
+*   **STG (Stochastic Gates):** Gaussian-based relaxation of Bernoulli gates.
+*   **STE (Straight-Through Estimator):** Hard thresholding with gradient approximation.
+*   **Gumbel-Softmax:** Categorical reparameterization for feature selection.
+*   **Correlated STG:** Handles multi-collinearity among features.
+*   **L1 Regularization:** Classic Lasso-style selection layer.
+
+Quick Links
+-----------
+
+*   `Documentation <https://intsystems.github.io/SToG/>`_
+*   `Installation Guide <https://intsystems.github.io/SToG/installation.html>`_
+*   `Quick Start <https://intsystems.github.io/SToG/quick_start.html>`_
+*   `API Reference <https://intsystems.github.io/SToG/api/index.html>`_
+
+Installation
+------------
+
+You can install the package directly from the source:
+
+.. code-block:: bash
+
+    git clone https://github.com/intsystems/SToG.git
+    cd SToG
+    pip install -e .
+
+Project Information
+===================
+
+:Project Title: Stochastic Gating for Robust Feature Selection
+:Project Type: Research Project
+:Authors: Eynullayev Altay, Firsov Sergey, Rubtsov Denis , Karpeev Gleb
 
 Abstract
 ========
 
-Purus sit amet luctus venenatis lectus magna fringilla. Condimentum id venenatis a condimentum vitae sapien. Auctor neque vitae tempus quam pellentesque nec nam aliquam. Eget egestas purus viverra accumsan in. Nam aliquam sem et tortor. Donec et odio pellentesque diam volutpat commodo. Odio pellentesque diam volutpat commodo sed egestas. Sit amet dictum sit amet justo. Pellentesque sit amet porttitor eget. Imperdiet sed euismod nisi porta lorem mollis aliquam ut. Quis varius quam quisque id diam vel quam elementum. Ornare lectus sit amet est placerat in. Vulputate dignissim suspendisse in est ante. Elit sed vulputate mi sit amet mauris. Egestas sed tempus urna et pharetra pharetra. Viverra tellus in hac habitasse platea dictumst vestibulum rhoncus.
+Feature selection is a crucial step in building interpretable and efficient machine learning models, especially in high-dimensional settings. This project investigates and implements stochastic gating mechanisms—a class of differentiable relaxation methods that enable gradient-based feature selection. 
 
-Research publications
-===============================
-1. 
+We provide a comprehensive library **SToG**, which allows researchers and practitioners to easily plug in feature selection layers into existing PyTorch architectures. The library supports various regularization techniques, handles correlated features, and provides a unified interface for benchmarking different selection strategies against standard baselines.
 
-Presentations at conferences on the topic of research
-================================================
-1. 
 
-Software modules developed as part of the study
-======================================================
-1. A python package *mylib* with all implementation `here <https://github.com/intsystems/ProjectTemplate/tree/master/src>`_.
-2. A code with all experiment visualisation `here <https://github.comintsystems/ProjectTemplate/blob/master/code/main.ipynb>`_. Can use `colab <http://colab.research.google.com/github/intsystems/ProjectTemplate/blob/master/code/main.ipynb>`_.
