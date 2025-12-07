@@ -1,4 +1,7 @@
-.. image:: https://raw.githubusercontent.com/intsystems/SToG/master/figures/logo_stog.png
+SToG: Stochastic Gates for Feature Selection
+============================================
+
+.. figure:: https://raw.githubusercontent.com/intsystems/SToG/master/figures/logo_stog.png
     :width: 400
     :align: center
     :alt: SToG Logo
@@ -12,9 +15,6 @@
 .. |docs| image:: https://github.com/intsystems/SToG/workflows/docs/badge.svg
     :target: https://intsystems.github.io/SToG/
     :alt: Docs status
-
-SToG: Stochastic Gates for Feature Selection
-============================================
 
 **SToG** (Stochastic Gates) is a PyTorch-based library designed for efficient and differentiable feature selection in neural networks. It implements various stochastic gating mechanisms that allow models to learn sparse feature representations end-to-end.
 
@@ -41,16 +41,14 @@ You can install the package directly from the source:
 
 .. code-block:: bash
 
-    git clone https://github.com/intsystems/SToG.git
-    cd SToG
-    pip install -e .
+    pip install SToG
 
 Project Information
 ===================
 
 :Project Title: Stochastic Gating for Robust Feature Selection
 :Project Type: Research Project
-:Authors: Eynullayev Altay, Firsov Sergey, Rubtsov Denis , Karpeev Gleb
+:Authors: Eynullayev Altay, Firsov Sergey, Rubtsov Denis, Karpeev Gleb
 
 Abstract
 ========
@@ -58,5 +56,3 @@ Abstract
 Feature selection is a crucial step in building interpretable and efficient machine learning models, especially in high-dimensional settings. This project investigates and implements stochastic gating mechanisms—a class of differentiable relaxation methods that enable gradient-based feature selection. 
 
 We provide a comprehensive library **SToG**, which allows researchers and practitioners to easily plug in feature selection layers into existing PyTorch architectures. The library supports various regularization techniques, handles correlated features, and provides a unified interface for benchmarking different selection strategies against standard baselines.
-
-
