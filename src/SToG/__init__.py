@@ -14,6 +14,7 @@ from .trainer import FeatureSelectionTrainer
 from .models import create_classification_model
 from .datasets import DatasetLoader
 from .benchmark import ComprehensiveBenchmark, compare_with_l1_sklearn
+from .stog_model import SToGModel
 
 __all__ = [
     # Base
@@ -24,6 +25,8 @@ __all__ = [
     'GumbelLayer',
     'CorrelatedSTGLayer',
     'L1Layer',
+    # Model
+    'SToGModel'
     # Training
     'FeatureSelectionTrainer',
     'create_classification_model',

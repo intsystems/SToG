@@ -5,18 +5,18 @@ from sklearn.datasets import make_classification
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
-from mylib.base import BaseFeatureSelector
-from mylib.selectors import (
+from SToG.base import BaseFeatureSelector
+from SToG.selectors import (
     STGLayer,
     STELayer,
     GumbelLayer,
     CorrelatedSTGLayer,
     L1Layer
 )
-from mylib.trainer import FeatureSelectionTrainer
-from mylib.models import create_classification_model
-from mylib.datasets import DatasetLoader
-from mylib.benchmark import ComprehensiveBenchmark, compare_with_l1_sklearn
+from SToG.trainer import FeatureSelectionTrainer
+from SToG.models import create_classification_model
+from SToG.datasets import DatasetLoader
+from SToG.benchmark import ComprehensiveBenchmark, compare_with_l1_sklearn
 
 
 class TestBasicSelectors:
