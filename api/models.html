@@ -54,8 +54,7 @@
 <li class="toctree-l2"><a class="reference internal" href="selectors.html">selectors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trainer.html">trainer</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-mylib.models">Model Factories</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#mylib.models.create_classification_model"><code class="docutils literal notranslate"><span class="pre">create_classification_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-factories">Model Factories</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 </ul>
 </li>
@@ -101,51 +100,14 @@
              
   <section id="models">
 <h1>models<a class="headerlink" href="#models" title="Link to this heading"></a></h1>
-<section id="module-mylib.models">
-<span id="model-factories"></span><h2>Model Factories<a class="headerlink" href="#module-mylib.models" title="Link to this heading"></a></h2>
-<p>Model definitions for classification tasks.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="mylib.models.create_classification_model">
-<span class="sig-prename descclassname"><span class="pre">mylib.models.</span></span><span class="sig-name descname"><span class="pre">create_classification_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><span class="pre">Module</span></a></span></span><a class="reference internal" href="../_modules/mylib/models.html#create_classification_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.models.create_classification_model" title="Link to this definition"></a></dt>
-<dd><p>Create a simple feedforward neural network for classification.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_dim</strong> – Number of input features</p></li>
-<li><p><strong>num_classes</strong> – Number of output classes</p></li>
-<li><p><strong>hidden_dim</strong> – Hidden layer dimension (auto-calculated if None)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>PyTorch sequential model</p>
-</dd>
-</dl>
-</dd></dl>
-
+<section id="model-factories">
+<h2>Model Factories<a class="headerlink" href="#model-factories" title="Link to this heading"></a></h2>
 <section id="overview">
 <h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
-<p>The <a class="reference internal" href="#module-mylib.models" title="mylib.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mylib.models</span></code></a> module provides factory functions for creating neural network models
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">mylib.models</span></code> module provides factory functions for creating neural network models
 suitable for feature selection experiments.</p>
 <section id="create-classification-model">
 <h4>create_classification_model<a class="headerlink" href="#create-classification-model" title="Link to this heading"></a></h4>
-<dl class="py function">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-prename descclassname"><span class="pre">mylib.models.</span></span><span class="sig-name descname"><span class="pre">create_classification_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><span class="pre">Module</span></a></span></span><a class="reference internal" href="../_modules/mylib/models.html#create_classification_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
-<dd><p>Create a simple feedforward neural network for classification.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_dim</strong> – Number of input features</p></li>
-<li><p><strong>num_classes</strong> – Number of output classes</p></li>
-<li><p><strong>hidden_dim</strong> – Hidden layer dimension (auto-calculated if None)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>PyTorch sequential model</p>
-</dd>
-</dl>
-</dd></dl>
-
 <p>Creates a feedforward neural network classifier with the following architecture:</p>
 <p><strong>Architecture:</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Input (n_features)

@@ -55,12 +55,8 @@
 <li class="toctree-l2"><a class="reference internal" href="trainer.html">trainer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models.html">models</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">datasets</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-mylib.datasets">Dataset Loading Utilities</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#mylib.datasets.DatasetLoader"><code class="docutils literal notranslate"><span class="pre">DatasetLoader</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-loading-utilities">Dataset Loading Utilities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#datasetloader">DatasetLoader</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">DatasetLoader</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 </ul>
 </li>
@@ -105,117 +101,14 @@
              
   <section id="datasets">
 <h1>datasets<a class="headerlink" href="#datasets" title="Link to this heading"></a></h1>
-<section id="module-mylib.datasets">
-<span id="dataset-loading-utilities"></span><h2>Dataset Loading Utilities<a class="headerlink" href="#module-mylib.datasets" title="Link to this heading"></a></h2>
-<p>Dataset loading utilities.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="mylib.datasets.DatasetLoader">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mylib.datasets.</span></span><span class="sig-name descname"><span class="pre">DatasetLoader</span></span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.datasets.DatasetLoader" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Load and prepare datasets for benchmarking.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="mylib.datasets.DatasetLoader.load_breast_cancer">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_breast_cancer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_breast_cancer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.datasets.DatasetLoader.load_breast_cancer" title="Link to this definition"></a></dt>
-<dd><p>Load breast cancer dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mylib.datasets.DatasetLoader.load_wine">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_wine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_wine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.datasets.DatasetLoader.load_wine" title="Link to this definition"></a></dt>
-<dd><p>Load wine dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mylib.datasets.DatasetLoader.create_synthetic_high_dim">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_synthetic_high_dim</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_high_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.datasets.DatasetLoader.create_synthetic_high_dim" title="Link to this definition"></a></dt>
-<dd><p>Create synthetic high-dimensional dataset (MADELON-like).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="mylib.datasets.DatasetLoader.create_synthetic_correlated">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_synthetic_correlated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_correlated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mylib.datasets.DatasetLoader.create_synthetic_correlated" title="Link to this definition"></a></dt>
-<dd><p>Create synthetic dataset with correlated features.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="dataset-loading-utilities">
+<h2>Dataset Loading Utilities<a class="headerlink" href="#dataset-loading-utilities" title="Link to this heading"></a></h2>
 </section>
 <section id="datasetloader">
 <h2>DatasetLoader<a class="headerlink" href="#datasetloader" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="id0">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mylib.datasets.</span></span><span class="sig-name descname"><span class="pre">DatasetLoader</span></span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Load and prepare datasets for benchmarking.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="id1">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_breast_cancer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_breast_cancer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
-<dd><p>Load breast cancer dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id2">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_wine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_wine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
-<dd><p>Load wine dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id3">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_synthetic_high_dim</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_high_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
-<dd><p>Create synthetic high-dimensional dataset (MADELON-like).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id4">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_synthetic_correlated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_correlated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
-<dd><p>Create synthetic dataset with correlated features.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 <section id="overview">
 <h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
-<p>The <a class="reference internal" href="generated/mylib.datasets.html#mylib.datasets.DatasetLoader" title="mylib.datasets.DatasetLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.datasets.DatasetLoader</span></code></a> provides static methods to load benchmark datasets
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.datasets.DatasetLoader</span></code> provides static methods to load benchmark datasets
 suitable for feature selection experiments.</p>
 <section id="available-datasets">
 <h4>Available Datasets<a class="headerlink" href="#available-datasets" title="Link to this heading"></a></h4>
@@ -232,17 +125,6 @@ suitable for feature selection experiments.</p>
 </section>
 <section id="breast-cancer-dataset">
 <h4>Breast Cancer Dataset<a class="headerlink" href="#breast-cancer-dataset" title="Link to this heading"></a></h4>
-<dl class="py method">
-<dt class="sig sig-object py" id="id5">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DatasetLoader.</span></span><span class="sig-name descname"><span class="pre">load_breast_cancer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_breast_cancer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
-<dd><p>Load breast cancer dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="simple">
 <dt><strong>Properties:</strong></dt><dd><ul class="simple">
 <li><p>569 samples</p></li>
@@ -264,17 +146,6 @@ suitable for feature selection experiments.</p>
 </section>
 <section id="wine-dataset">
 <h4>Wine Dataset<a class="headerlink" href="#wine-dataset" title="Link to this heading"></a></h4>
-<dl class="py method">
-<dt class="sig sig-object py" id="id6">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DatasetLoader.</span></span><span class="sig-name descname"><span class="pre">load_wine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.load_wine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
-<dd><p>Load wine dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="simple">
 <dt><strong>Properties:</strong></dt><dd><ul class="simple">
 <li><p>178 samples</p></li>
@@ -293,17 +164,6 @@ suitable for feature selection experiments.</p>
 </section>
 <section id="synthetic-high-dimensional-dataset">
 <h4>Synthetic High-Dimensional Dataset<a class="headerlink" href="#synthetic-high-dimensional-dataset" title="Link to this heading"></a></h4>
-<dl class="py method">
-<dt class="sig sig-object py" id="id7">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DatasetLoader.</span></span><span class="sig-name descname"><span class="pre">create_synthetic_high_dim</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_high_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id7" title="Link to this definition"></a></dt>
-<dd><p>Create synthetic high-dimensional dataset (MADELON-like).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="simple">
 <dt><strong>Properties:</strong></dt><dd><ul class="simple">
 <li><p>600 samples</p></li>
@@ -325,17 +185,6 @@ suitable for feature selection experiments.</p>
 </section>
 <section id="synthetic-correlated-features-dataset">
 <h4>Synthetic Correlated Features Dataset<a class="headerlink" href="#synthetic-correlated-features-dataset" title="Link to this heading"></a></h4>
-<dl class="py method">
-<dt class="sig sig-object py" id="id8">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DatasetLoader.</span></span><span class="sig-name descname"><span class="pre">create_synthetic_correlated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mylib/datasets.html#DatasetLoader.create_synthetic_correlated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id8" title="Link to this definition"></a></dt>
-<dd><p>Create synthetic dataset with correlated features.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary with dataset information</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="simple">
 <dt><strong>Properties:</strong></dt><dd><ul class="simple">
 <li><p>500 samples</p></li>
