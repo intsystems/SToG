@@ -1,7 +1,7 @@
-﻿mylib.benchmark
+﻿SToG.benchmark
 ===============
 
-.. automodule:: mylib.benchmark
+.. automodule:: SToG.benchmark
 
    
    .. rubric:: Functions

@@ -1,7 +1,7 @@
-﻿mylib.trainer
+﻿SToG.trainer
 =============
 
-.. automodule:: mylib.trainer
+.. automodule:: SToG.trainer
 
    
    .. rubric:: Classes

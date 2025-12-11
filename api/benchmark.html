@@ -56,8 +56,13 @@
 <li class="toctree-l2"><a class="reference internal" href="models.html">models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="datasets.html">datasets</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">benchmark</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#benchmarking-framework">Benchmarking Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-SToG.benchmark">Benchmarking Framework</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#SToG.benchmark.ComprehensiveBenchmark"><code class="docutils literal notranslate"><span class="pre">ComprehensiveBenchmark</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#SToG.benchmark.compare_with_l1_sklearn"><code class="docutils literal notranslate"><span class="pre">compare_with_l1_sklearn()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#comprehensivebenchmark">ComprehensiveBenchmark</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">ComprehensiveBenchmark</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 </ul>
 </li>
@@ -101,14 +106,175 @@
              
   <section id="benchmark">
 <h1>benchmark<a class="headerlink" href="#benchmark" title="Link to this heading"></a></h1>
-<section id="benchmarking-framework">
-<h2>Benchmarking Framework<a class="headerlink" href="#benchmarking-framework" title="Link to this heading"></a></h2>
+<section id="module-SToG.benchmark">
+<span id="benchmarking-framework"></span><h2>Benchmarking Framework<a class="headerlink" href="#module-SToG.benchmark" title="Link to this heading"></a></h2>
+<p>Benchmarking utilities for feature selection methods.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="SToG.benchmark.ComprehensiveBenchmark">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SToG.benchmark.</span></span><span class="sig-name descname"><span class="pre">ComprehensiveBenchmark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.benchmark.ComprehensiveBenchmark" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Comprehensive benchmark for all feature selection methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.benchmark.ComprehensiveBenchmark.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.benchmark.ComprehensiveBenchmark.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize benchmark.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> – Device to run on (‘cpu’ or ‘cuda’)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.benchmark.ComprehensiveBenchmark.run_single_experiment">
+<span class="sig-name descname"><span class="pre">run_single_experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark.run_single_experiment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.benchmark.ComprehensiveBenchmark.run_single_experiment" title="Link to this definition"></a></dt>
+<dd><p>Run a single experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_info</strong> – Dictionary with dataset information</p></li>
+<li><p><strong>method_name</strong> – Name of the method to test</p></li>
+<li><p><strong>lambda_reg</strong> – Regularization strength</p></li>
+<li><p><strong>random_state</strong> – Random seed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.benchmark.ComprehensiveBenchmark.evaluate_method">
+<span class="sig-name descname"><span class="pre">evaluate_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_runs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark.evaluate_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.benchmark.ComprehensiveBenchmark.evaluate_method" title="Link to this definition"></a></dt>
+<dd><p>Evaluate a method with multiple lambda values and runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_info</strong> – Dictionary with dataset information</p></li>
+<li><p><strong>method_name</strong> – Name of the method to test</p></li>
+<li><p><strong>lambda_values</strong> – List of lambda values to try</p></li>
+<li><p><strong>n_runs</strong> – Number of runs per lambda value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with best results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.benchmark.ComprehensiveBenchmark.run_benchmark">
+<span class="sig-name descname"><span class="pre">run_benchmark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark.run_benchmark"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.benchmark.ComprehensiveBenchmark.run_benchmark" title="Link to this definition"></a></dt>
+<dd><p>Run complete benchmark.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>datasets</strong> – List of dataset info dictionaries (uses default if None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.benchmark.ComprehensiveBenchmark.print_summary">
+<span class="sig-name descname"><span class="pre">print_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark.print_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.benchmark.ComprehensiveBenchmark.print_summary" title="Link to this definition"></a></dt>
+<dd><p>Print summary table of benchmark results.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="SToG.benchmark.compare_with_l1_sklearn">
+<span class="sig-prename descclassname"><span class="pre">SToG.benchmark.</span></span><span class="sig-name descname"><span class="pre">compare_with_l1_sklearn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#compare_with_l1_sklearn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.benchmark.compare_with_l1_sklearn" title="Link to this definition"></a></dt>
+<dd><p>Compare with sklearn L1 logistic regression baseline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>datasets</strong> – List of dataset info dictionaries</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with sklearn results</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="comprehensivebenchmark">
 <h2>ComprehensiveBenchmark<a class="headerlink" href="#comprehensivebenchmark" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SToG.benchmark.</span></span><span class="sig-name descname"><span class="pre">ComprehensiveBenchmark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Comprehensive benchmark for all feature selection methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Initialize benchmark.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> – Device to run on (‘cpu’ or ‘cuda’)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">run_single_experiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark.run_single_experiment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>Run a single experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_info</strong> – Dictionary with dataset information</p></li>
+<li><p><strong>method_name</strong> – Name of the method to test</p></li>
+<li><p><strong>lambda_reg</strong> – Regularization strength</p></li>
+<li><p><strong>random_state</strong> – Random seed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">evaluate_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_runs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark.evaluate_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd><p>Evaluate a method with multiple lambda values and runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_info</strong> – Dictionary with dataset information</p></li>
+<li><p><strong>method_name</strong> – Name of the method to test</p></li>
+<li><p><strong>lambda_values</strong> – List of lambda values to try</p></li>
+<li><p><strong>n_runs</strong> – Number of runs per lambda value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with best results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">run_benchmark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark.run_benchmark"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Run complete benchmark.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>datasets</strong> – List of dataset info dictionaries (uses default if None)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">print_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#ComprehensiveBenchmark.print_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dd><p>Print summary table of benchmark results.</p>
+</dd></dl>
+
+</dd></dl>
+
 <section id="overview">
 <h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
-<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.benchmark.ComprehensiveBenchmark</span></code> provides a framework for systematically
+<p>The <a class="reference internal" href="generated/mylib.benchmark.html#SToG.benchmark.ComprehensiveBenchmark" title="SToG.benchmark.ComprehensiveBenchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.benchmark.ComprehensiveBenchmark</span></code></a> provides a framework for systematically
 comparing feature selection methods across multiple datasets and hyperparameter settings.</p>
 <section id="features">
 <h4>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h4>
@@ -140,14 +306,14 @@ comparing feature selection methods across multiple datasets and hyperparameter 
 <section id="running-benchmarks">
 <h4>Running Benchmarks<a class="headerlink" href="#running-benchmarks" title="Link to this heading"></a></h4>
 <p><strong>Basic Usage:</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComprehensiveBenchmark</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">SToG</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComprehensiveBenchmark</span>
 
 <span class="n">benchmark</span> <span class="o">=</span> <span class="n">ComprehensiveBenchmark</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
 <span class="n">benchmark</span><span class="o">.</span><span class="n">run_benchmark</span><span class="p">()</span>  <span class="c1"># Uses default datasets</span>
 </pre></div>
 </div>
 <p><strong>Custom Datasets:</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatasetLoader</span><span class="p">,</span> <span class="n">ComprehensiveBenchmark</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">SToG</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatasetLoader</span><span class="p">,</span> <span class="n">ComprehensiveBenchmark</span>
 
 <span class="n">loader</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="p">()</span>
 <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
@@ -210,8 +376,22 @@ L1            | 94.29 %   | 12 / 30  | 60.0%    | 0.050
 </section>
 <section id="comparison-with-scikit-learn-l1">
 <h4>Comparison with Scikit-learn L1<a class="headerlink" href="#comparison-with-scikit-learn-l1" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-prename descclassname"><span class="pre">SToG.benchmark.</span></span><span class="sig-name descname"><span class="pre">compare_with_l1_sklearn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/benchmark.html#compare_with_l1_sklearn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dd><p>Compare with sklearn L1 logistic regression baseline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>datasets</strong> – List of dataset info dictionaries</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with sklearn results</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p>Compares SToG methods against scikit-learn’s L1-regularized classifiers:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">compare_with_l1_sklearn</span><span class="p">,</span> <span class="n">DatasetLoader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">SToG</span><span class="w"> </span><span class="kn">import</span> <span class="n">compare_with_l1_sklearn</span><span class="p">,</span> <span class="n">DatasetLoader</span>
 
 <span class="n">loader</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="p">()</span>
 <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">loader</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">()]</span>
@@ -223,7 +403,7 @@ L1            | 94.29 %   | 12 / 30  | 60.0%    | 0.050
 <section id="example-running-full-benchmark">
 <h4>Example: Running Full Benchmark<a class="headerlink" href="#example-running-full-benchmark" title="Link to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComprehensiveBenchmark</span><span class="p">,</span> <span class="n">DatasetLoader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">SToG</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComprehensiveBenchmark</span><span class="p">,</span> <span class="n">DatasetLoader</span>
 
 <span class="c1"># Load datasets</span>
 <span class="n">loader</span> <span class="o">=</span> <span class="n">DatasetLoader</span><span class="p">()</span>
@@ -239,7 +419,7 @@ L1            | 94.29 %   | 12 / 30  | 60.0%    | 0.050
 <span class="n">benchmark</span><span class="o">.</span><span class="n">run_benchmark</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
 
 <span class="c1"># Also compare with sklearn</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">compare_with_l1_sklearn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">SToG</span><span class="w"> </span><span class="kn">import</span> <span class="n">compare_with_l1_sklearn</span>
 <span class="n">compare_with_l1_sklearn</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
 </pre></div>
 </div>

@@ -101,115 +101,135 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-    <span class="n">STGLayer</span><span class="p">,</span>
-    <span class="n">FeatureSelectionTrainer</span><span class="p">,</span>
-    <span class="n">create_classification_model</span>
-<span class="p">)</span>
-
-<span class="c1"># Load and prepare data</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
-
-<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
-<span class="p">)</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-    <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
-<span class="p">)</span>
-
-<span class="c1"># Convert to PyTorch tensors</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
-<span class="n">X_val</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
-<span class="n">y_val</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">y_val</span><span class="p">)</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">y_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
-
-<span class="c1"># Create model and selector</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">n_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
-
-<span class="n">model</span> <span class="o">=</span> <span class="n">create_classification_model</span><span class="p">(</span>
-    <span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">,</span>
-    <span class="n">num_classes</span><span class="o">=</span><span class="n">n_classes</span>
-<span class="p">)</span>
-<span class="n">selector</span> <span class="o">=</span> <span class="n">STGLayer</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-
-<span class="c1"># Create trainer</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">FeatureSelectionTrainer</span><span class="p">(</span>
-    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
-    <span class="n">selector</span><span class="o">=</span><span class="n">selector</span><span class="p">,</span>
-    <span class="n">criterion</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(),</span>
-    <span class="n">lambda_reg</span><span class="o">=</span><span class="mf">0.05</span>
-<span class="p">)</span>
-
-<span class="c1"># Train</span>
-<span class="n">history</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-    <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
-    <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span>
-    <span class="n">epochs</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-    <span class="n">patience</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
-<span class="p">)</span>
-
-<span class="c1"># Evaluate</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Test Accuracy: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;test_acc&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected Features: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;selected_count&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">n_features</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">SToG</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+ <span class="n">STGLayer</span><span class="p">,</span>
+ <span class="n">STELayer</span><span class="p">,</span>
+ <span class="n">GumbelLayer</span><span class="p">,</span>
+ <span class="n">CorrelatedSTGLayer</span><span class="p">,</span>
+ <span class="n">L1Layer</span><span class="p">,</span>
+ <span class="n">FeatureSelectionTrainer</span><span class="p">,</span>
+ <span class="n">create_classification_model</span><span class="p">,</span>
+ <span class="n">DatasetLoader</span><span class="p">,</span>
+ <span class="n">ComprehensiveBenchmark</span><span class="p">,</span>
+ <span class="n">compare_with_l1_sklearn</span><span class="p">,</span>
 </pre></div>
 </div>
+<p>)</p>
+<blockquote>
+<div><p># Load and prepare data
+data = load_breast_cancer()
+X = data.data
+y = data.target</p>
+<p>scaler = StandardScaler()
+X = scaler.fit_transform(X)</p>
+<dl class="simple">
+<dt>X_train, X_test, y_train, y_test = train_test_split(</dt><dd><p>X, y, test_size=0.2, random_state=42</p>
+</dd>
+</dl>
+<p>)
+X_train, X_val, y_train, y_val = train_test_split(</p>
+<blockquote>
+<div><p>X_train, y_train, test_size=0.2, random_state=42</p>
+</div></blockquote>
+<p>)</p>
+<p># Convert to PyTorch tensors
+X_train = torch.FloatTensor(X_train)
+y_train = torch.LongTensor(y_train)
+X_val = torch.FloatTensor(X_val)
+y_val = torch.LongTensor(y_val)
+X_test = torch.FloatTensor(X_test)
+y_test = torch.LongTensor(y_test)</p>
+<p># Create model and selector
+n_features = X_train.shape[1]
+n_classes = len(set(y.tolist()))</p>
+<dl class="simple">
+<dt>model = create_classification_model(</dt><dd><p>input_dim=n_features,
+num_classes=n_classes</p>
+</dd>
+</dl>
+<p>)
+selector = STGLayer(input_dim=n_features, sigma=0.5)</p>
+<p># Create trainer
+trainer = FeatureSelectionTrainer(</p>
+<blockquote>
+<div><p>model=model,
+selector=selector,
+criterion=nn.CrossEntropyLoss(),
+lambda_reg=0.05</p>
+</div></blockquote>
+<p>)</p>
+<p># Train
+history = trainer.fit(</p>
+<blockquote>
+<div><p>X_train, y_train,
+X_val, y_val,
+epochs=300,
+patience=50,
+verbose=True</p>
+</div></blockquote>
+<p>)</p>
+<p># Evaluate
+result = trainer.evaluate(X_test, y_test)
+print(f”nTest Accuracy: {result[‘test_acc’]:.2f}%”)
+print(f”Selected Features: {result[‘selected_count’]} / {n_features}”)</p>
+</div></blockquote>
 </section>
 <section id="comparing-methods">
 <h2>Comparing Methods<a class="headerlink" href="#comparing-methods" title="Link to this heading"></a></h2>
 <p>Compare different feature selection methods:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-    <span class="n">STGLayer</span><span class="p">,</span> <span class="n">STELayer</span><span class="p">,</span> <span class="n">GumbelLayer</span><span class="p">,</span>
-    <span class="n">CorrelatedSTGLayer</span><span class="p">,</span> <span class="n">L1Layer</span>
-<span class="p">)</span>
-
-<span class="n">methods</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;STG&#39;</span><span class="p">:</span> <span class="n">STGLayer</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
-    <span class="s1">&#39;STE&#39;</span><span class="p">:</span> <span class="n">STELayer</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">),</span>
-    <span class="s1">&#39;Gumbel&#39;</span><span class="p">:</span> <span class="n">GumbelLayer</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
-    <span class="s1">&#39;CorrelatedSTG&#39;</span><span class="p">:</span> <span class="n">CorrelatedSTGLayer</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
-    <span class="s1">&#39;L1&#39;</span><span class="p">:</span> <span class="n">L1Layer</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">),</span>
-<span class="p">}</span>
-
-<span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">selector</span> <span class="ow">in</span> <span class="n">methods</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="c1"># Create fresh model for fair comparison</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">create_classification_model</span><span class="p">(</span>
-        <span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">,</span>
-        <span class="n">num_classes</span><span class="o">=</span><span class="n">n_classes</span>
-    <span class="p">)</span>
-
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">FeatureSelectionTrainer</span><span class="p">(</span>
-        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
-        <span class="n">selector</span><span class="o">=</span><span class="n">selector</span><span class="p">,</span>
-        <span class="n">criterion</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(),</span>
-        <span class="n">lambda_reg</span><span class="o">=</span><span class="mf">0.05</span>
-    <span class="p">)</span>
-
-    <span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">results</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-
-<span class="c1"># Display results</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;Method&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Accuracy&#39;</span><span class="si">:</span><span class="s2">&lt;12</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Selected&#39;</span><span class="si">:</span><span class="s2">&lt;12</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">44</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;test_acc&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;10.2f</span><span class="si">}</span><span class="s2">% </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;selected_count&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">n_features</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">SToG</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+ <span class="n">STGLayer</span><span class="p">,</span>
+ <span class="n">STELayer</span><span class="p">,</span>
+ <span class="n">GumbelLayer</span><span class="p">,</span>
+ <span class="n">CorrelatedSTGLayer</span><span class="p">,</span>
+ <span class="n">L1Layer</span>
 </pre></div>
 </div>
+<p>)</p>
+<blockquote>
+<div><dl class="simple">
+<dt>methods = {</dt><dd><p>‘STG’: STGLayer(input_dim=n_features, sigma=0.5),
+‘STE’: STELayer(input_dim=n_features),
+‘Gumbel’: GumbelLayer(input_dim=n_features, temperature=1.0),
+‘CorrelatedSTG’: CorrelatedSTGLayer(input_dim=n_features, sigma=0.5),
+‘L1’: L1Layer(input_dim=n_features),</p>
+</dd>
+</dl>
+<p>}</p>
+<p>results = {}
+for name, selector in methods.items():</p>
+<blockquote>
+<div><p># Create fresh model for fair comparison
+model = create_classification_model(</p>
+<blockquote>
+<div><p>input_dim=n_features,
+num_classes=n_classes</p>
+</div></blockquote>
+<p>)</p>
+<dl class="simple">
+<dt>trainer = FeatureSelectionTrainer(</dt><dd><p>model=model,
+selector=selector,
+criterion=nn.CrossEntropyLoss(),
+lambda_reg=0.05</p>
+</dd>
+</dl>
+<p>)</p>
+<p>trainer.fit(X_train, y_train, X_val, y_val, epochs=300, verbose=False)
+results[name] = trainer.evaluate(X_test, y_test)</p>
+</div></blockquote>
+<p># Display results
+print(f”n{‘Method’:&lt;20} {‘Accuracy’:&lt;12} {‘Selected’:&lt;12}”)
+print(‘-’ * 44)
+for name, result in results.items():</p>
+<blockquote>
+<div><p>print(f”{name:&lt;20} {result[‘test_acc’]:&gt;10.2f}% {result[‘selected_count’]:&gt;10} / {n_features}”)</p>
+</div></blockquote>
+</div></blockquote>
 </section>
 <section id="running-benchmarks">
 <h2>Running Benchmarks<a class="headerlink" href="#running-benchmarks" title="Link to this heading"></a></h2>
 <p>Run comprehensive benchmarks on multiple datasets:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComprehensiveBenchmark</span><span class="p">,</span> <span class="n">DatasetLoader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">SToG</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComprehensiveBenchmark</span><span class="p">,</span> <span class="n">DatasetLoader</span>
 
 <span class="c1"># Initialize benchmark</span>
 <span class="n">benchmark</span> <span class="o">=</span> <span class="n">ComprehensiveBenchmark</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>

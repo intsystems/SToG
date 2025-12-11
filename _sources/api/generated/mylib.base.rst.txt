@@ -1,7 +1,7 @@
-﻿mylib.base
+﻿SToG.base
 ==========
 
-.. automodule:: mylib.base
+.. automodule:: SToG.base
 
    
    .. rubric:: Classes

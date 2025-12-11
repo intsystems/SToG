@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mylib.datasets &mdash; SToG 0.0.1 documentation</title>
+  <title>SToG.datasets &mdash; SToG 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
@@ -67,7 +67,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">mylib.datasets</li>
+      <li class="breadcrumb-item active">SToG.datasets</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/generated/mylib.datasets.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -77,8 +77,68 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mylib-datasets">
-<h1>mylib.datasets<a class="headerlink" href="#mylib-datasets" title="Link to this heading"></a></h1>
+  <section id="module-SToG.datasets">
+<span id="stog-datasets"></span><h1>SToG.datasets<a class="headerlink" href="#module-SToG.datasets" title="Link to this heading"></a></h1>
+<p>Dataset loading utilities.</p>
+<p class="rubric">Classes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#SToG.datasets.DatasetLoader" title="SToG.datasets.DatasetLoader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatasetLoader</span></code></a>()</p></td>
+<td><p>Load and prepare datasets for benchmarking.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="SToG.datasets.DatasetLoader">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SToG.datasets.</span></span><span class="sig-name descname"><span class="pre">DatasetLoader</span></span><a class="reference internal" href="../../_modules/SToG/datasets.html#DatasetLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.datasets.DatasetLoader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Load and prepare datasets for benchmarking.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.datasets.DatasetLoader.load_breast_cancer">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_breast_cancer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/datasets.html#DatasetLoader.load_breast_cancer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.datasets.DatasetLoader.load_breast_cancer" title="Link to this definition"></a></dt>
+<dd><p>Load breast cancer dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.datasets.DatasetLoader.load_wine">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_wine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/datasets.html#DatasetLoader.load_wine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.datasets.DatasetLoader.load_wine" title="Link to this definition"></a></dt>
+<dd><p>Load wine dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.datasets.DatasetLoader.create_synthetic_high_dim">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_synthetic_high_dim</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/datasets.html#DatasetLoader.create_synthetic_high_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.datasets.DatasetLoader.create_synthetic_high_dim" title="Link to this definition"></a></dt>
+<dd><p>Create synthetic high-dimensional dataset (MADELON-like).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.datasets.DatasetLoader.create_synthetic_correlated">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_synthetic_correlated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/datasets.html#DatasetLoader.create_synthetic_correlated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.datasets.DatasetLoader.create_synthetic_correlated" title="Link to this definition"></a></dt>
+<dd><p>Create synthetic dataset with correlated features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with dataset information</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 

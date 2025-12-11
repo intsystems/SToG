@@ -96,34 +96,34 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="base.html">base</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="base.html#base-feature-selector-class">Base Feature Selector Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="base.html#module-SToG.base">Base Feature Selector Class</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="selectors.html">selectors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="selectors.html#feature-selection-methods">Feature Selection Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selectors.html#module-SToG.selectors">Feature Selection Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="trainer.html">trainer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="trainer.html#training-utilities">Training Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer.html#module-SToG.trainer">Training Utilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trainer.html#featureselectiontrainer">FeatureSelectionTrainer</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="models.html#model-factories">Model Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#module-SToG.models">Model Factories</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="datasets.html#dataset-loading-utilities">Dataset Loading Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datasets.html#module-SToG.datasets">Dataset Loading Utilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="datasets.html#datasetloader">DatasetLoader</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="benchmark.html">benchmark</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="benchmark.html#benchmarking-framework">Benchmarking Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html#module-SToG.benchmark">Benchmarking Framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="benchmark.html#comprehensivebenchmark">ComprehensiveBenchmark</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="main.html">main</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main.html#main-execution-script">Main Execution Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#module-SToG.main">Main Execution Script</a></li>
 </ul>
 </li>
 </ul>
@@ -132,33 +132,33 @@
 <h2>Module Overview<a class="headerlink" href="#module-overview" title="Link to this heading"></a></h2>
 <p>The SToG library consists of several interconnected modules:</p>
 <dl class="simple">
-<dt><strong>base.py</strong> - Abstract base class</dt><dd><p>Defines <code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.base.BaseFeatureSelector</span></code>, the abstract base for all feature selector implementations.</p>
+<dt><strong>base.py</strong> - Abstract base class</dt><dd><p>Defines <a class="reference internal" href="generated/mylib.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.base.BaseFeatureSelector</span></code></a>, the abstract base for all feature selector implementations.</p>
 </dd>
 <dt><strong>selectors.py</strong> - Feature selection methods</dt><dd><p>Implements five feature selection methods:</p>
 <ul class="simple">
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.selectors.STGLayer</span></code> - Stochastic Gates with Gaussian relaxation</p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.selectors.STELayer</span></code> - Straight-Through Estimator</p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.selectors.GumbelLayer</span></code> - Gumbel-Softmax categorical relaxation</p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.selectors.CorrelatedSTGLayer</span></code> - STG for correlated features</p></li>
-<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.selectors.L1Layer</span></code> - L1 regularization baseline</p></li>
+<li><p><a class="reference internal" href="selectors.html#id0" title="SToG.selectors.STGLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.selectors.STGLayer</span></code></a> - Stochastic Gates with Gaussian relaxation</p></li>
+<li><p><a class="reference internal" href="selectors.html#id5" title="SToG.selectors.STELayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.selectors.STELayer</span></code></a> - Straight-Through Estimator</p></li>
+<li><p><a class="reference internal" href="selectors.html#id10" title="SToG.selectors.GumbelLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.selectors.GumbelLayer</span></code></a> - Gumbel-Softmax categorical relaxation</p></li>
+<li><p><a class="reference internal" href="selectors.html#id16" title="SToG.selectors.CorrelatedSTGLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.selectors.CorrelatedSTGLayer</span></code></a> - STG for correlated features</p></li>
+<li><p><a class="reference internal" href="selectors.html#id21" title="SToG.selectors.L1Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.selectors.L1Layer</span></code></a> - L1 regularization baseline</p></li>
 </ul>
 </dd>
-<dt><strong>trainer.py</strong> - Training utilities</dt><dd><p>Provides <code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.trainer.FeatureSelectionTrainer</span></code> for joint optimization of model and selector.</p>
+<dt><strong>trainer.py</strong> - Training utilities</dt><dd><p>Provides <a class="reference internal" href="trainer.html#id0" title="SToG.trainer.FeatureSelectionTrainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.trainer.FeatureSelectionTrainer</span></code></a> for joint optimization of model and selector.</p>
 </dd>
-<dt><strong>models.py</strong> - Model factories</dt><dd><p>Provides <code class="xref py py-func docutils literal notranslate"><span class="pre">mylib.models.create_classification_model()</span></code> for creating neural network classifiers.</p>
+<dt><strong>models.py</strong> - Model factories</dt><dd><p>Provides <a class="reference internal" href="models.html#id0" title="SToG.models.create_classification_model"><code class="xref py py-func docutils literal notranslate"><span class="pre">SToG.models.create_classification_model()</span></code></a> for creating neural network classifiers.</p>
 </dd>
-<dt><strong>datasets.py</strong> - Dataset utilities</dt><dd><p>Provides <code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.datasets.DatasetLoader</span></code> for loading and preparing datasets.</p>
+<dt><strong>datasets.py</strong> - Dataset utilities</dt><dd><p>Provides <a class="reference internal" href="generated/mylib.datasets.html#SToG.datasets.DatasetLoader" title="SToG.datasets.DatasetLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.datasets.DatasetLoader</span></code></a> for loading and preparing datasets.</p>
 </dd>
-<dt><strong>benchmark.py</strong> - Benchmarking framework</dt><dd><p>Provides <code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.benchmark.ComprehensiveBenchmark</span></code> for comparing methods across datasets.</p>
+<dt><strong>benchmark.py</strong> - Benchmarking framework</dt><dd><p>Provides <a class="reference internal" href="generated/mylib.benchmark.html#SToG.benchmark.ComprehensiveBenchmark" title="SToG.benchmark.ComprehensiveBenchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.benchmark.ComprehensiveBenchmark</span></code></a> for comparing methods across datasets.</p>
 </dd>
-<dt><strong>main.py</strong> - Main execution</dt><dd><p>Entry point for running benchmarks via <code class="xref py py-func docutils literal notranslate"><span class="pre">mylib.main.main()</span></code>.</p>
+<dt><strong>main.py</strong> - Main execution</dt><dd><p>Entry point for running benchmarks via <a class="reference internal" href="main.html#id0" title="SToG.main.main"><code class="xref py py-func docutils literal notranslate"><span class="pre">SToG.main.main()</span></code></a>.</p>
 </dd>
 </dl>
 </section>
 <section id="design-philosophy">
 <h2>Design Philosophy<a class="headerlink" href="#design-philosophy" title="Link to this heading"></a></h2>
 <p><strong>Modular Architecture</strong></p>
-<p>Each feature selector inherits from <code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.base.BaseFeatureSelector</span></code>, ensuring consistent interface:</p>
+<p>Each feature selector inherits from <a class="reference internal" href="generated/mylib.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.base.BaseFeatureSelector</span></code></a>, ensuring consistent interface:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BaseFeatureSelector (Abstract)
 ├── forward(x) -&gt; x_gated
 ├── regularization_loss() -&gt; scalar
@@ -167,7 +167,7 @@
 </pre></div>
 </div>
 <p><strong>Extensibility</strong></p>
-<p>New feature selection methods can be implemented by subclassing <code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.base.BaseFeatureSelector</span></code>
+<p>New feature selection methods can be implemented by subclassing <a class="reference internal" href="generated/mylib.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.base.BaseFeatureSelector</span></code></a>
 and implementing three methods: <code class="docutils literal notranslate"><span class="pre">forward</span></code>, <code class="docutils literal notranslate"><span class="pre">regularization_loss</span></code>, and <code class="docutils literal notranslate"><span class="pre">get_selection_probs</span></code>.</p>
 <p><strong>PyTorch Integration</strong></p>
 <p>All components are built on PyTorch:</p>

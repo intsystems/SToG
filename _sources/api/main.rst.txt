@@ -5,7 +5,7 @@ main
 Main Execution Script
 =====================
 
-.. automodule:: mylib.main
+.. automodule:: SToG.main
    :members:
    :undoc-members:
    :show-inheritance:
@@ -13,15 +13,15 @@ Main Execution Script
 Overview
 --------
 
-The :mod:`mylib.main` module provides the entry point for running complete feature selection 
+The :mod:`SToG.main` module provides the entry point for running complete feature selection 
 benchmarks with all implemented methods.
 
 Main Function
 ~~~~~~~~~~~~~
 
-.. autofunction:: mylib.main.main
+.. autofunction:: SToG.main.main
 
-The :func:`mylib.main.main` function:
+The :func:`SToG.main.main` function:
 
 1. Loads all available benchmark datasets
 2. Initializes the comprehensive benchmark
@@ -36,13 +36,13 @@ Execute the entire benchmarking pipeline:
 
 .. code-block:: bash
 
-   python -m mylib.main
+   python -m SToG.main
 
 Or from Python:
 
 .. code-block:: python
 
-   from mylib.main import main
+   from SToG.main import main
    main()
 
 What Gets Executed
@@ -102,7 +102,7 @@ To modify benchmarking behavior, edit or extend the main function:
 
 .. code-block:: python
 
-   from mylib import ComprehensiveBenchmark, DatasetLoader
+   from SToG import ComprehensiveBenchmark, DatasetLoader
    
    def custom_benchmark():
        """Custom benchmarking with specific settings."""

@@ -112,7 +112,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_classification</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">STGLayer</span><span class="p">,</span> <span class="n">FeatureSelectionTrainer</span><span class="p">,</span> <span class="n">create_classification_model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">SToG</span><span class="w"> </span><span class="kn">import</span> <span class="n">STGLayer</span><span class="p">,</span> <span class="n">FeatureSelectionTrainer</span><span class="p">,</span> <span class="n">create_classification_model</span>
 
 <span class="c1"># Create synthetic dataset</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -264,7 +264,7 @@ Selected feature indices: [ 0  1  2  3  4 12 34 56 78 91]
 </section>
 <section id="comparing-methods">
 <h2>Comparing Methods<a class="headerlink" href="#comparing-methods" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mylib</span><span class="w"> </span><span class="kn">import</span> <span class="n">STELayer</span><span class="p">,</span> <span class="n">GumbelLayer</span><span class="p">,</span> <span class="n">L1Layer</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">SToG</span><span class="w"> </span><span class="kn">import</span> <span class="n">STELayer</span><span class="p">,</span> <span class="n">GumbelLayer</span><span class="p">,</span> <span class="n">L1Layer</span>
 
 <span class="n">methods</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;STG&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">STGLayer</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}),</span>

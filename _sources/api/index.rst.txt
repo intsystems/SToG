@@ -21,38 +21,38 @@ Module Overview
 The SToG library consists of several interconnected modules:
 
 **base.py** - Abstract base class
-   Defines :class:`mylib.base.BaseFeatureSelector`, the abstract base for all feature selector implementations.
+   Defines :class:`SToG.base.BaseFeatureSelector`, the abstract base for all feature selector implementations.
 
 **selectors.py** - Feature selection methods
    Implements five feature selection methods:
    
-   - :class:`mylib.selectors.STGLayer` - Stochastic Gates with Gaussian relaxation
-   - :class:`mylib.selectors.STELayer` - Straight-Through Estimator
-   - :class:`mylib.selectors.GumbelLayer` - Gumbel-Softmax categorical relaxation
-   - :class:`mylib.selectors.CorrelatedSTGLayer` - STG for correlated features
-   - :class:`mylib.selectors.L1Layer` - L1 regularization baseline
+   - :class:`SToG.selectors.STGLayer` - Stochastic Gates with Gaussian relaxation
+   - :class:`SToG.selectors.STELayer` - Straight-Through Estimator
+   - :class:`SToG.selectors.GumbelLayer` - Gumbel-Softmax categorical relaxation
+   - :class:`SToG.selectors.CorrelatedSTGLayer` - STG for correlated features
+   - :class:`SToG.selectors.L1Layer` - L1 regularization baseline
 
 **trainer.py** - Training utilities
-   Provides :class:`mylib.trainer.FeatureSelectionTrainer` for joint optimization of model and selector.
+   Provides :class:`SToG.trainer.FeatureSelectionTrainer` for joint optimization of model and selector.
 
 **models.py** - Model factories
-   Provides :func:`mylib.models.create_classification_model` for creating neural network classifiers.
+   Provides :func:`SToG.models.create_classification_model` for creating neural network classifiers.
 
 **datasets.py** - Dataset utilities
-   Provides :class:`mylib.datasets.DatasetLoader` for loading and preparing datasets.
+   Provides :class:`SToG.datasets.DatasetLoader` for loading and preparing datasets.
 
 **benchmark.py** - Benchmarking framework
-   Provides :class:`mylib.benchmark.ComprehensiveBenchmark` for comparing methods across datasets.
+   Provides :class:`SToG.benchmark.ComprehensiveBenchmark` for comparing methods across datasets.
 
 **main.py** - Main execution
-   Entry point for running benchmarks via :func:`mylib.main.main`.
+   Entry point for running benchmarks via :func:`SToG.main.main`.
 
 Design Philosophy
 =================
 
 **Modular Architecture**
 
-Each feature selector inherits from :class:`mylib.base.BaseFeatureSelector`, ensuring consistent interface:
+Each feature selector inherits from :class:`SToG.base.BaseFeatureSelector`, ensuring consistent interface:
 
 .. code-block:: text
 
@@ -64,7 +64,7 @@ Each feature selector inherits from :class:`mylib.base.BaseFeatureSelector`, ens
 
 **Extensibility**
 
-New feature selection methods can be implemented by subclassing :class:`mylib.base.BaseFeatureSelector` 
+New feature selection methods can be implemented by subclassing :class:`SToG.base.BaseFeatureSelector` 
 and implementing three methods: ``forward``, ``regularization_loss``, and ``get_selection_probs``.
 
 **PyTorch Integration**

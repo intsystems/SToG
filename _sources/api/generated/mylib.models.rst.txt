@@ -1,7 +1,7 @@
-﻿mylib.models
+﻿SToG.models
 ============
 
-.. automodule:: mylib.models
+.. automodule:: SToG.models
 
    
    .. rubric:: Functions

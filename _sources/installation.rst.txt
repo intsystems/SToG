@@ -2,29 +2,20 @@
 Installation
 ============
 
-Requirements
-============
-
-- Python 3.9 or higher
-- PyTorch 2.0.0 or higher
-- NumPy 1.24.0 or higher
-- scikit-learn 1.3.0 or higher
-
-Install from GitHub
-====================
-
-Clone the repository:
+You can install SToG from PyPI:
 
 .. code-block:: bash
 
-   git clone https://github.com/intsystems/SToG.git
-   cd SToG
+    pip install stog
 
-Install the package in development mode:
+
+For development from source:
 
 .. code-block:: bash
 
-   pip install -e .
+    git clone https://github.com/intsystems/SToG.git
+    cd SToG
+    pip install -e .
 
 Install Dependencies
 ====================
@@ -50,8 +41,8 @@ Test the installation:
 .. code-block:: python
 
    import torch
-   from mylib import STGLayer, FeatureSelectionTrainer, create_classification_model
-   
+   from SToG import STGLayer, FeatureSelectionTrainer, create_classification_model
+
    # Quick smoke test
    model = create_classification_model(n_features=20, n_classes=2)
    selector = STGLayer(n_features=20)
@@ -86,7 +77,7 @@ The documentation will be built in `doc/build/html/`. Open `index.html` in your 
 Troubleshooting
 ===============
 
-**Import Error: No module named 'mylib'**
+**Import Error: No module named 'SToG'**
 
 Ensure you installed the package in development mode:
 

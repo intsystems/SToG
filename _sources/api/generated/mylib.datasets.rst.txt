@@ -1,7 +1,7 @@
-﻿mylib.datasets
+﻿SToG.datasets
 ==============
 
-.. automodule:: mylib.datasets
+.. automodule:: SToG.datasets
 
    
    .. rubric:: Classes

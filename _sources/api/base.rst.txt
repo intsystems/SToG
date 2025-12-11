@@ -5,7 +5,7 @@ base
 Base Feature Selector Class
 ============================
 
-.. automodule:: mylib.base
+.. automodule:: SToG.base
    :members:
    :undoc-members:
    :show-inheritance:
@@ -13,7 +13,7 @@ Base Feature Selector Class
 Overview
 --------
 
-The :class:`mylib.base.BaseFeatureSelector` is an abstract base class that defines the interface 
+The :class:`SToG.base.BaseFeatureSelector` is an abstract base class that defines the interface 
 for all feature selection methods in SToG. All concrete selector implementations must inherit 
 from this class and implement the required abstract methods.
 
@@ -47,7 +47,7 @@ Example Implementation
 
 .. code-block:: python
 
-   from mylib.base import BaseFeatureSelector
+   from SToG.base import BaseFeatureSelector
    import torch
    import torch.nn as nn
    

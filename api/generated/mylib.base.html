@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mylib.base &mdash; SToG 0.0.1 documentation</title>
+  <title>SToG.base &mdash; SToG 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
@@ -67,7 +67,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">mylib.base</li>
+      <li class="breadcrumb-item active">SToG.base</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/generated/mylib.base.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -77,8 +77,80 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mylib-base">
-<h1>mylib.base<a class="headerlink" href="#mylib-base" title="Link to this heading"></a></h1>
+  <section id="module-SToG.base">
+<span id="stog-base"></span><h1>SToG.base<a class="headerlink" href="#module-SToG.base" title="Link to this heading"></a></h1>
+<p>Base classes for feature selection methods.</p>
+<p class="rubric">Classes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseFeatureSelector</span></code></a>(input_dim[, device])</p></td>
+<td><p>Base class for feature selection methods.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="SToG.base.BaseFeatureSelector">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SToG.base.</span></span><span class="sig-name descname"><span class="pre">BaseFeatureSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/base.html#BaseFeatureSelector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.base.BaseFeatureSelector" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Base class for feature selection methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.base.BaseFeatureSelector.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/base.html#BaseFeatureSelector.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.base.BaseFeatureSelector.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.base.BaseFeatureSelector.forward">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/base.html#BaseFeatureSelector.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.base.BaseFeatureSelector.forward" title="Link to this definition"></a></dt>
+<dd><p>Apply feature selection gates to input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – Input tensor of shape [batch_size, input_dim]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Gated input tensor of shape [batch_size, input_dim]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.base.BaseFeatureSelector.regularization_loss">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regularization_loss</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/base.html#BaseFeatureSelector.regularization_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.base.BaseFeatureSelector.regularization_loss" title="Link to this definition"></a></dt>
+<dd><p>Compute regularization loss for sparsity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Scalar tensor with regularization loss</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.base.BaseFeatureSelector.get_selection_probs">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_selection_probs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/base.html#BaseFeatureSelector.get_selection_probs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.base.BaseFeatureSelector.get_selection_probs" title="Link to this definition"></a></dt>
+<dd><p>Get feature selection probabilities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tensor of shape [input_dim] with selection probabilities</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.base.BaseFeatureSelector.get_selected_features">
+<span class="sig-name descname"><span class="pre">get_selected_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../../_modules/SToG/base.html#BaseFeatureSelector.get_selected_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.base.BaseFeatureSelector.get_selected_features" title="Link to this definition"></a></dt>
+<dd><p>Get binary mask of selected features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>threshold</strong> – Probability threshold for selection</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean array of shape [input_dim]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 

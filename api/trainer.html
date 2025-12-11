@@ -53,8 +53,12 @@
 <li class="toctree-l2"><a class="reference internal" href="base.html">base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="selectors.html">selectors</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">trainer</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#training-utilities">Training Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-SToG.trainer">Training Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#SToG.trainer.FeatureSelectionTrainer"><code class="docutils literal notranslate"><span class="pre">FeatureSelectionTrainer</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#featureselectiontrainer">FeatureSelectionTrainer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">FeatureSelectionTrainer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 </ul>
 </li>
@@ -101,14 +105,155 @@
              
   <section id="trainer">
 <h1>trainer<a class="headerlink" href="#trainer" title="Link to this heading"></a></h1>
-<section id="training-utilities">
-<h2>Training Utilities<a class="headerlink" href="#training-utilities" title="Link to this heading"></a></h2>
+<section id="module-SToG.trainer">
+<span id="training-utilities"></span><h2>Training Utilities<a class="headerlink" href="#module-SToG.trainer" title="Link to this heading"></a></h2>
+<p>Training utilities for feature selection.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="SToG.trainer.FeatureSelectionTrainer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SToG.trainer.</span></span><span class="sig-name descname"><span class="pre">FeatureSelectionTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/trainer.html#FeatureSelectionTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.trainer.FeatureSelectionTrainer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Trainer with proper lambda search and early stopping.
+Handles joint training of classification model and feature selector.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.trainer.FeatureSelectionTrainer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/trainer.html#FeatureSelectionTrainer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.trainer.FeatureSelectionTrainer.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize trainer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – Classification model (nn.Module)</p></li>
+<li><p><strong>selector</strong> – Feature selector (BaseFeatureSelector)</p></li>
+<li><p><strong>criterion</strong> – Loss function</p></li>
+<li><p><strong>lambda_reg</strong> – Regularization strength</p></li>
+<li><p><strong>device</strong> – Device to run on</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.trainer.FeatureSelectionTrainer.train_epoch">
+<span class="sig-name descname"><span class="pre">train_epoch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/trainer.html#FeatureSelectionTrainer.train_epoch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.trainer.FeatureSelectionTrainer.train_epoch" title="Link to this definition"></a></dt>
+<dd><p>Train for one epoch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.trainer.FeatureSelectionTrainer.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patience</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/trainer.html#FeatureSelectionTrainer.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.trainer.FeatureSelectionTrainer.fit" title="Link to this definition"></a></dt>
+<dd><p>Train the model with early stopping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_train</strong> – Training features [N_train, D]</p></li>
+<li><p><strong>y_train</strong> – Training labels [N_train]</p></li>
+<li><p><strong>X_val</strong> – Validation features [N_val, D]</p></li>
+<li><p><strong>y_val</strong> – Validation labels [N_val]</p></li>
+<li><p><strong>epochs</strong> – Maximum number of epochs</p></li>
+<li><p><strong>patience</strong> – Early stopping patience</p></li>
+<li><p><strong>verbose</strong> – Whether to print progress</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Training history dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.trainer.FeatureSelectionTrainer.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/trainer.html#FeatureSelectionTrainer.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.trainer.FeatureSelectionTrainer.evaluate" title="Link to this definition"></a></dt>
+<dd><p>Evaluate on test set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_test</strong> – Test features [N_test, D]</p></li>
+<li><p><strong>y_test</strong> – Test labels [N_test]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with test metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="featureselectiontrainer">
 <h2>FeatureSelectionTrainer<a class="headerlink" href="#featureselectiontrainer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SToG.trainer.</span></span><span class="sig-name descname"><span class="pre">FeatureSelectionTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/trainer.html#FeatureSelectionTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Trainer with proper lambda search and early stopping.
+Handles joint training of classification model and feature selector.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/trainer.html#FeatureSelectionTrainer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Initialize trainer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – Classification model (nn.Module)</p></li>
+<li><p><strong>selector</strong> – Feature selector (BaseFeatureSelector)</p></li>
+<li><p><strong>criterion</strong> – Loss function</p></li>
+<li><p><strong>lambda_reg</strong> – Regularization strength</p></li>
+<li><p><strong>device</strong> – Device to run on</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">train_epoch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/trainer.html#FeatureSelectionTrainer.train_epoch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>Train for one epoch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patience</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/trainer.html#FeatureSelectionTrainer.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd><p>Train the model with early stopping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_train</strong> – Training features [N_train, D]</p></li>
+<li><p><strong>y_train</strong> – Training labels [N_train]</p></li>
+<li><p><strong>X_val</strong> – Validation features [N_val, D]</p></li>
+<li><p><strong>y_val</strong> – Validation labels [N_val]</p></li>
+<li><p><strong>epochs</strong> – Maximum number of epochs</p></li>
+<li><p><strong>patience</strong> – Early stopping patience</p></li>
+<li><p><strong>verbose</strong> – Whether to print progress</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Training history dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/SToG/trainer.html#FeatureSelectionTrainer.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Evaluate on test set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_test</strong> – Test features [N_test, D]</p></li>
+<li><p><strong>y_test</strong> – Test labels [N_test]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with test metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <section id="overview">
 <h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
-<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">mylib.trainer.FeatureSelectionTrainer</span></code> handles joint optimization of a classification
+<p>The <a class="reference internal" href="#id0" title="SToG.trainer.FeatureSelectionTrainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.trainer.FeatureSelectionTrainer</span></code></a> handles joint optimization of a classification
 model and a feature selector. It implements:</p>
 <ul class="simple">
 <li><p><strong>Two-optimizer approach</strong> - Separate optimizers for model and selector</p></li>

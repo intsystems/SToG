@@ -5,7 +5,7 @@ trainer
 Training Utilities
 ==================
 
-.. automodule:: mylib.trainer
+.. automodule:: SToG.trainer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -13,7 +13,7 @@ Training Utilities
 FeatureSelectionTrainer
 =======================
 
-.. autoclass:: mylib.trainer.FeatureSelectionTrainer
+.. autoclass:: SToG.trainer.FeatureSelectionTrainer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -22,7 +22,7 @@ FeatureSelectionTrainer
 Overview
 --------
 
-The :class:`mylib.trainer.FeatureSelectionTrainer` handles joint optimization of a classification 
+The :class:`SToG.trainer.FeatureSelectionTrainer` handles joint optimization of a classification 
 model and a feature selector. It implements:
 
 - **Two-optimizer approach** - Separate optimizers for model and selector

@@ -1,7 +1,7 @@
-﻿mylib.main
+﻿SToG.main
 ==========
 
-.. automodule:: mylib.main
+.. automodule:: SToG.main
 
    
    .. rubric:: Functions
