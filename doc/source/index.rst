@@ -47,7 +47,7 @@ Quick Navigation
 .. code-block:: python
 
    import torch
-   from mylib import STGLayer, FeatureSelectionTrainer, create_classification_model
+   from SToG import STGLayer, FeatureSelectionTrainer, create_classification_model
 
    # Create model and selector
    model = create_classification_model(n_features=100, n_classes=2)

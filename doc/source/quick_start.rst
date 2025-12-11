@@ -15,12 +15,19 @@ Here's a minimal example to get started with SToG:
    from sklearn.model_selection import train_test_split
    from sklearn.preprocessing import StandardScaler
    
-   from mylib import (
-       STGLayer, 
-       FeatureSelectionTrainer, 
-       create_classification_model
-   )
-   
+   from SToG import (
+    STGLayer,
+    STELayer,
+    GumbelLayer,
+    CorrelatedSTGLayer,
+    L1Layer,
+    FeatureSelectionTrainer,
+    create_classification_model,
+    DatasetLoader,
+    ComprehensiveBenchmark,
+    compare_with_l1_sklearn,
+)
+
    # Load and prepare data
    data = load_breast_cancer()
    X = data.data
@@ -83,10 +90,14 @@ Compare different feature selection methods:
 
 .. code-block:: python
 
-   from mylib import (
-       STGLayer, STELayer, GumbelLayer, 
-       CorrelatedSTGLayer, L1Layer
-   )
+   from SToG import (
+    STGLayer,
+    STELayer,
+    GumbelLayer,
+    CorrelatedSTGLayer,
+    L1Layer
+)
+
    
    methods = {
        'STG': STGLayer(input_dim=n_features, sigma=0.5),
@@ -127,7 +138,7 @@ Run comprehensive benchmarks on multiple datasets:
 
 .. code-block:: python
 
-   from mylib import ComprehensiveBenchmark, DatasetLoader
+   from SToG import ComprehensiveBenchmark, DatasetLoader
    
    # Initialize benchmark
    benchmark = ComprehensiveBenchmark(device='cpu')

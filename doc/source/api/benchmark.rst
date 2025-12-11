@@ -5,7 +5,7 @@ benchmark
 Benchmarking Framework
 ======================
 
-.. automodule:: mylib.benchmark
+.. automodule:: SToG.benchmark
    :members:
    :undoc-members:
    :show-inheritance:
@@ -13,7 +13,7 @@ Benchmarking Framework
 ComprehensiveBenchmark
 ======================
 
-.. autoclass:: mylib.benchmark.ComprehensiveBenchmark
+.. autoclass:: SToG.benchmark.ComprehensiveBenchmark
    :members:
    :undoc-members:
    :show-inheritance:
@@ -22,7 +22,7 @@ ComprehensiveBenchmark
 Overview
 --------
 
-The :class:`mylib.benchmark.ComprehensiveBenchmark` provides a framework for systematically 
+The :class:`SToG.benchmark.ComprehensiveBenchmark` provides a framework for systematically 
 comparing feature selection methods across multiple datasets and hyperparameter settings.
 
 Features
@@ -60,7 +60,7 @@ Running Benchmarks
 
 .. code-block:: python
 
-   from mylib import ComprehensiveBenchmark
+   from SToG import ComprehensiveBenchmark
    
    benchmark = ComprehensiveBenchmark(device='cpu')
    benchmark.run_benchmark()  # Uses default datasets
@@ -69,7 +69,7 @@ Running Benchmarks
 
 .. code-block:: python
 
-   from mylib import DatasetLoader, ComprehensiveBenchmark
+   from SToG import DatasetLoader, ComprehensiveBenchmark
    
    loader = DatasetLoader()
    datasets = [
@@ -140,13 +140,13 @@ Lambda Interpretation
 Comparison with Scikit-learn L1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autofunction:: mylib.benchmark.compare_with_l1_sklearn
+.. autofunction:: SToG.benchmark.compare_with_l1_sklearn
 
 Compares SToG methods against scikit-learn's L1-regularized classifiers:
 
 .. code-block:: python
 
-   from mylib import compare_with_l1_sklearn, DatasetLoader
+   from SToG import compare_with_l1_sklearn, DatasetLoader
    
    loader = DatasetLoader()
    datasets = [loader.load_breast_cancer()]
@@ -159,7 +159,7 @@ Example: Running Full Benchmark
 .. code-block:: python
 
    import torch
-   from mylib import ComprehensiveBenchmark, DatasetLoader
+   from SToG import ComprehensiveBenchmark, DatasetLoader
    
    # Load datasets
    loader = DatasetLoader()
@@ -175,7 +175,7 @@ Example: Running Full Benchmark
    benchmark.run_benchmark(datasets)
    
    # Also compare with sklearn
-   from mylib import compare_with_l1_sklearn
+   from SToG import compare_with_l1_sklearn
    compare_with_l1_sklearn(datasets)
 
 Interpreting Results

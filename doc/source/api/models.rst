@@ -5,7 +5,7 @@ models
 Model Factories
 ===============
 
-.. automodule:: mylib.models
+.. automodule:: SToG.models
    :members:
    :undoc-members:
    :show-inheritance:
@@ -13,13 +13,13 @@ Model Factories
 Overview
 --------
 
-The :mod:`mylib.models` module provides factory functions for creating neural network models 
+The :mod:`SToG.models` module provides factory functions for creating neural network models 
 suitable for feature selection experiments.
 
 create_classification_model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autofunction:: mylib.models.create_classification_model
+.. autofunction:: SToG.models.create_classification_model
 
 Creates a feedforward neural network classifier with the following architecture:
 
@@ -75,7 +75,7 @@ Creates a feedforward neural network classifier with the following architecture:
 
 .. code-block:: python
 
-   from mylib import create_classification_model
+   from SToG import create_classification_model
    
    # Binary classification with 100 features
    model = create_classification_model(

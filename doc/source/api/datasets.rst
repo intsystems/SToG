@@ -5,7 +5,7 @@ datasets
 Dataset Loading Utilities
 ==========================
 
-.. automodule:: mylib.datasets
+.. automodule:: SToG.datasets
    :members:
    :undoc-members:
    :show-inheritance:
@@ -13,7 +13,7 @@ Dataset Loading Utilities
 DatasetLoader
 =============
 
-.. autoclass:: mylib.datasets.DatasetLoader
+.. autoclass:: SToG.datasets.DatasetLoader
    :members:
    :undoc-members:
    :show-inheritance:
@@ -21,7 +21,7 @@ DatasetLoader
 Overview
 --------
 
-The :class:`mylib.datasets.DatasetLoader` provides static methods to load benchmark datasets 
+The :class:`SToG.datasets.DatasetLoader` provides static methods to load benchmark datasets 
 suitable for feature selection experiments.
 
 Available Datasets
@@ -42,7 +42,7 @@ All loaders return a dictionary with:
 Breast Cancer Dataset
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. automethod:: mylib.datasets.DatasetLoader.load_breast_cancer
+.. automethod:: SToG.datasets.DatasetLoader.load_breast_cancer
 
 **Properties:**
    - 569 samples
@@ -55,7 +55,7 @@ Breast Cancer Dataset
 
 .. code-block:: python
 
-   from mylib import DatasetLoader
+   from SToG import DatasetLoader
    data = DatasetLoader.load_breast_cancer()
    print(f"Dataset: {data['name']}")
    print(f"Shape: {data['X'].shape}")
@@ -64,7 +64,7 @@ Breast Cancer Dataset
 Wine Dataset
 ~~~~~~~~~~~~
 
-.. automethod:: mylib.datasets.DatasetLoader.load_wine
+.. automethod:: SToG.datasets.DatasetLoader.load_wine
 
 **Properties:**
    - 178 samples
@@ -83,7 +83,7 @@ Wine Dataset
 Synthetic High-Dimensional Dataset
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. automethod:: mylib.datasets.DatasetLoader.create_synthetic_high_dim
+.. automethod:: SToG.datasets.DatasetLoader.create_synthetic_high_dim
 
 **Properties:**
    - 600 samples
@@ -106,7 +106,7 @@ Synthetic High-Dimensional Dataset
 Synthetic Correlated Features Dataset
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. automethod:: mylib.datasets.DatasetLoader.create_synthetic_correlated
+.. automethod:: SToG.datasets.DatasetLoader.create_synthetic_correlated
 
 **Properties:**
    - 500 samples
@@ -135,7 +135,7 @@ Full Benchmarking Example
 
 .. code-block:: python
 
-   from mylib import DatasetLoader, ComprehensiveBenchmark
+   from SToG import DatasetLoader, ComprehensiveBenchmark
    
    loader = DatasetLoader()
    datasets = [

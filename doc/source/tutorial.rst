@@ -26,7 +26,7 @@ We have a classification task with:
    from sklearn.preprocessing import StandardScaler
    from sklearn.datasets import make_classification
    
-   from mylib import STGLayer, FeatureSelectionTrainer, create_classification_model
+   from SToG import STGLayer, FeatureSelectionTrainer, create_classification_model
    
    # Create synthetic dataset
    np.random.seed(42)
@@ -187,7 +187,7 @@ Comparing Methods
 
 .. code-block:: python
 
-   from mylib import STELayer, GumbelLayer, L1Layer
+   from SToG import STELayer, GumbelLayer, L1Layer
    
    methods = {
        'STG': (STGLayer, {'sigma': 0.5}),

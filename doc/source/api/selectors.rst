@@ -5,7 +5,7 @@ selectors
 Feature Selection Methods
 ==========================
 
-.. automodule:: mylib.selectors
+.. automodule:: SToG.selectors
    :members:
    :undoc-members:
    :show-inheritance:
@@ -13,13 +13,13 @@ Feature Selection Methods
 Overview
 --------
 
-The :mod:`mylib.selectors` module implements five feature selection methods, each with different 
+The :mod:`SToG.selectors` module implements five feature selection methods, each with different 
 properties and use cases.
 
 Stochastic Gates (STGLayer)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: mylib.selectors.STGLayer
+.. autoclass:: SToG.selectors.STGLayer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -40,13 +40,13 @@ Stochastic Gates (STGLayer)
 
 .. code-block:: python
 
-   from mylib import STGLayer
+   from SToG import STGLayer
    selector = STGLayer(input_dim=100, sigma=0.5)
 
 Straight-Through Estimator (STELayer)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: mylib.selectors.STELayer
+.. autoclass:: SToG.selectors.STELayer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -72,13 +72,13 @@ Straight-Through Estimator (STELayer)
 
 .. code-block:: python
 
-   from mylib import STELayer
+   from SToG import STELayer
    selector = STELayer(input_dim=100)
 
 Gumbel-Softmax (GumbelLayer)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: mylib.selectors.GumbelLayer
+.. autoclass:: SToG.selectors.GumbelLayer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -104,13 +104,13 @@ Gumbel-Softmax (GumbelLayer)
 
 .. code-block:: python
 
-   from mylib import GumbelLayer
+   from SToG import GumbelLayer
    selector = GumbelLayer(input_dim=100, temperature=1.0)
 
 Correlated STG (CorrelatedSTGLayer)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: mylib.selectors.CorrelatedSTGLayer
+.. autoclass:: SToG.selectors.CorrelatedSTGLayer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -135,7 +135,7 @@ Correlated STG (CorrelatedSTGLayer)
 
 .. code-block:: python
 
-   from mylib import CorrelatedSTGLayer
+   from SToG import CorrelatedSTGLayer
    selector = CorrelatedSTGLayer(
        input_dim=100, 
        sigma=0.5,
@@ -145,7 +145,7 @@ Correlated STG (CorrelatedSTGLayer)
 L1 Regularization (L1Layer)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: mylib.selectors.L1Layer
+.. autoclass:: SToG.selectors.L1Layer
    :members:
    :undoc-members:
    :show-inheritance:
@@ -176,7 +176,7 @@ L1 Regularization (L1Layer)
 
 .. code-block:: python
 
-   from mylib import L1Layer
+   from SToG import L1Layer
    selector = L1Layer(input_dim=100)
 
 Method Comparison

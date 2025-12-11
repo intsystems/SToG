@@ -1,7 +1,7 @@
-﻿mylib.selectors
+﻿SToG.selectors
 ===============
 
-.. automodule:: mylib.selectors
+.. automodule:: SToG.selectors
 
    
    .. rubric:: Classes
