@@ -91,14 +91,14 @@
 
 
 <div class="viewcode-block" id="ComprehensiveBenchmark">
-<a class="viewcode-back" href="../../api/generated/mylib.benchmark.html#SToG.benchmark.ComprehensiveBenchmark">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.benchmark.html#SToG.benchmark.ComprehensiveBenchmark">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">ComprehensiveBenchmark</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Comprehensive benchmark for all feature selection methods.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
 <div class="viewcode-block" id="ComprehensiveBenchmark.__init__">
-<a class="viewcode-back" href="../../api/generated/mylib.benchmark.html#SToG.benchmark.ComprehensiveBenchmark.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.benchmark.html#SToG.benchmark.ComprehensiveBenchmark.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize benchmark.</span>
@@ -118,7 +118,7 @@
 
 
 <div class="viewcode-block" id="ComprehensiveBenchmark.run_single_experiment">
-<a class="viewcode-back" href="../../api/generated/mylib.benchmark.html#SToG.benchmark.ComprehensiveBenchmark.run_single_experiment">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.benchmark.html#SToG.benchmark.ComprehensiveBenchmark.run_single_experiment">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">run_single_experiment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_info</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">lambda_reg</span><span class="p">,</span> 
                              <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -177,7 +177,7 @@
 
 
 <div class="viewcode-block" id="ComprehensiveBenchmark.evaluate_method">
-<a class="viewcode-back" href="../../api/generated/mylib.benchmark.html#SToG.benchmark.ComprehensiveBenchmark.evaluate_method">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.benchmark.html#SToG.benchmark.ComprehensiveBenchmark.evaluate_method">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">evaluate_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_info</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> 
                        <span class="n">lambda_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_runs</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -247,7 +247,7 @@
 
 
 <div class="viewcode-block" id="ComprehensiveBenchmark.run_benchmark">
-<a class="viewcode-back" href="../../api/generated/mylib.benchmark.html#SToG.benchmark.ComprehensiveBenchmark.run_benchmark">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.benchmark.html#SToG.benchmark.ComprehensiveBenchmark.run_benchmark">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">run_benchmark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasets</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Run complete benchmark.</span>
@@ -281,7 +281,7 @@
 
 
 <div class="viewcode-block" id="ComprehensiveBenchmark.print_summary">
-<a class="viewcode-back" href="../../api/generated/mylib.benchmark.html#SToG.benchmark.ComprehensiveBenchmark.print_summary">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.benchmark.html#SToG.benchmark.ComprehensiveBenchmark.print_summary">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">print_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Print summary table of benchmark results.&quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">100</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -303,7 +303,7 @@
 
 
 <div class="viewcode-block" id="compare_with_l1_sklearn">
-<a class="viewcode-back" href="../../api/generated/mylib.benchmark.html#SToG.benchmark.compare_with_l1_sklearn">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.benchmark.html#SToG.benchmark.compare_with_l1_sklearn">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">compare_with_l1_sklearn</span><span class="p">(</span><span class="n">datasets</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compare with sklearn L1 logistic regression baseline.</span>

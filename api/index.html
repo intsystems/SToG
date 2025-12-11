@@ -132,7 +132,7 @@
 <h2>Module Overview<a class="headerlink" href="#module-overview" title="Link to this heading"></a></h2>
 <p>The SToG library consists of several interconnected modules:</p>
 <dl class="simple">
-<dt><strong>base.py</strong> - Abstract base class</dt><dd><p>Defines <a class="reference internal" href="generated/mylib.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.base.BaseFeatureSelector</span></code></a>, the abstract base for all feature selector implementations.</p>
+<dt><strong>base.py</strong> - Abstract base class</dt><dd><p>Defines <a class="reference internal" href="generated/SToG.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.base.BaseFeatureSelector</span></code></a>, the abstract base for all feature selector implementations.</p>
 </dd>
 <dt><strong>selectors.py</strong> - Feature selection methods</dt><dd><p>Implements five feature selection methods:</p>
 <ul class="simple">
@@ -147,9 +147,9 @@
 </dd>
 <dt><strong>models.py</strong> - Model factories</dt><dd><p>Provides <a class="reference internal" href="models.html#id0" title="SToG.models.create_classification_model"><code class="xref py py-func docutils literal notranslate"><span class="pre">SToG.models.create_classification_model()</span></code></a> for creating neural network classifiers.</p>
 </dd>
-<dt><strong>datasets.py</strong> - Dataset utilities</dt><dd><p>Provides <a class="reference internal" href="generated/mylib.datasets.html#SToG.datasets.DatasetLoader" title="SToG.datasets.DatasetLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.datasets.DatasetLoader</span></code></a> for loading and preparing datasets.</p>
+<dt><strong>datasets.py</strong> - Dataset utilities</dt><dd><p>Provides <a class="reference internal" href="generated/SToG.datasets.html#SToG.datasets.DatasetLoader" title="SToG.datasets.DatasetLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.datasets.DatasetLoader</span></code></a> for loading and preparing datasets.</p>
 </dd>
-<dt><strong>benchmark.py</strong> - Benchmarking framework</dt><dd><p>Provides <a class="reference internal" href="generated/mylib.benchmark.html#SToG.benchmark.ComprehensiveBenchmark" title="SToG.benchmark.ComprehensiveBenchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.benchmark.ComprehensiveBenchmark</span></code></a> for comparing methods across datasets.</p>
+<dt><strong>benchmark.py</strong> - Benchmarking framework</dt><dd><p>Provides <a class="reference internal" href="generated/SToG.benchmark.html#SToG.benchmark.ComprehensiveBenchmark" title="SToG.benchmark.ComprehensiveBenchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.benchmark.ComprehensiveBenchmark</span></code></a> for comparing methods across datasets.</p>
 </dd>
 <dt><strong>main.py</strong> - Main execution</dt><dd><p>Entry point for running benchmarks via <a class="reference internal" href="main.html#id0" title="SToG.main.main"><code class="xref py py-func docutils literal notranslate"><span class="pre">SToG.main.main()</span></code></a>.</p>
 </dd>
@@ -158,7 +158,7 @@
 <section id="design-philosophy">
 <h2>Design Philosophy<a class="headerlink" href="#design-philosophy" title="Link to this heading"></a></h2>
 <p><strong>Modular Architecture</strong></p>
-<p>Each feature selector inherits from <a class="reference internal" href="generated/mylib.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.base.BaseFeatureSelector</span></code></a>, ensuring consistent interface:</p>
+<p>Each feature selector inherits from <a class="reference internal" href="generated/SToG.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.base.BaseFeatureSelector</span></code></a>, ensuring consistent interface:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BaseFeatureSelector (Abstract)
 ├── forward(x) -&gt; x_gated
 ├── regularization_loss() -&gt; scalar
@@ -167,7 +167,7 @@
 </pre></div>
 </div>
 <p><strong>Extensibility</strong></p>
-<p>New feature selection methods can be implemented by subclassing <a class="reference internal" href="generated/mylib.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.base.BaseFeatureSelector</span></code></a>
+<p>New feature selection methods can be implemented by subclassing <a class="reference internal" href="generated/SToG.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">SToG.base.BaseFeatureSelector</span></code></a>
 and implementing three methods: <code class="docutils literal notranslate"><span class="pre">forward</span></code>, <code class="docutils literal notranslate"><span class="pre">regularization_loss</span></code>, and <code class="docutils literal notranslate"><span class="pre">get_selection_probs</span></code>.</p>
 <p><strong>PyTorch Integration</strong></p>
 <p>All components are built on PyTorch:</p>

@@ -85,12 +85,12 @@
 
 
 <div class="viewcode-block" id="BaseFeatureSelector">
-<a class="viewcode-back" href="../../api/generated/mylib.base.html#SToG.base.BaseFeatureSelector">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.base.html#SToG.base.BaseFeatureSelector">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">BaseFeatureSelector</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for feature selection methods.&quot;&quot;&quot;</span>
     
 <div class="viewcode-block" id="BaseFeatureSelector.__init__">
-<a class="viewcode-back" href="../../api/generated/mylib.base.html#SToG.base.BaseFeatureSelector.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.base.html#SToG.base.BaseFeatureSelector.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_dim</span> <span class="o">=</span> <span class="n">input_dim</span>
@@ -98,7 +98,7 @@
 
 
 <div class="viewcode-block" id="BaseFeatureSelector.forward">
-<a class="viewcode-back" href="../../api/generated/mylib.base.html#SToG.base.BaseFeatureSelector.forward">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.base.html#SToG.base.BaseFeatureSelector.forward">[docs]</a>
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply feature selection gates to input.</span>
@@ -113,7 +113,7 @@
 
 
 <div class="viewcode-block" id="BaseFeatureSelector.regularization_loss">
-<a class="viewcode-back" href="../../api/generated/mylib.base.html#SToG.base.BaseFeatureSelector.regularization_loss">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.base.html#SToG.base.BaseFeatureSelector.regularization_loss">[docs]</a>
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">regularization_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute regularization loss for sparsity.</span>
@@ -125,7 +125,7 @@
 
 
 <div class="viewcode-block" id="BaseFeatureSelector.get_selection_probs">
-<a class="viewcode-back" href="../../api/generated/mylib.base.html#SToG.base.BaseFeatureSelector.get_selection_probs">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.base.html#SToG.base.BaseFeatureSelector.get_selection_probs">[docs]</a>
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_selection_probs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get feature selection probabilities.</span>
@@ -137,7 +137,7 @@
 
 
 <div class="viewcode-block" id="BaseFeatureSelector.get_selected_features">
-<a class="viewcode-back" href="../../api/generated/mylib.base.html#SToG.base.BaseFeatureSelector.get_selected_features">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/SToG.base.html#SToG.base.BaseFeatureSelector.get_selected_features">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_selected_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get binary mask of selected features.</span>
 <span class="sd">        </span>

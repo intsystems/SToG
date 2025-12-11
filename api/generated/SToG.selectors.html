@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SToG.selectors &mdash; SToG 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3f51b5" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SToG
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">SToG: Stochastic Gating for Feature Selection</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3f51b5" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SToG</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SToG.selectors</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/generated/SToG.selectors.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-SToG.selectors">
+<span id="stog-selectors"></span><h1>SToG.selectors<a class="headerlink" href="#module-SToG.selectors" title="Link to this heading"></a></h1>
+<p>Feature selector implementations.</p>
+<p class="rubric">Classes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../selectors.html#id16" title="SToG.selectors.CorrelatedSTGLayer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CorrelatedSTGLayer</span></code></a>(input_dim[, sigma, ...])</p></td>
+<td><p>STG with explicit handling of correlated features.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../selectors.html#id10" title="SToG.selectors.GumbelLayer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GumbelLayer</span></code></a>(input_dim[, temperature, device])</p></td>
+<td><p>Gumbel-Softmax based feature selector.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../selectors.html#id21" title="SToG.selectors.L1Layer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">L1Layer</span></code></a>(input_dim[, device])</p></td>
+<td><p>L1 regularization on input layer weights.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../selectors.html#id5" title="SToG.selectors.STELayer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STELayer</span></code></a>(input_dim[, device])</p></td>
+<td><p>Straight-Through Estimator for feature selection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../selectors.html#id0" title="SToG.selectors.STGLayer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STGLayer</span></code></a>(input_dim[, sigma, device])</p></td>
+<td><p>Stochastic Gates (STG) - Original implementation from Yamada et al. 2020.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="SToG.selectors.STGLayer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SToG.selectors.</span></span><span class="sig-name descname"><span class="pre">STGLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/selectors.html#STGLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.STGLayer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="SToG.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseFeatureSelector</span></code></a></p>
+<p>Stochastic Gates (STG) - Original implementation from Yamada et al. 2020.
+Uses Gaussian-based continuous relaxation of Bernoulli variables.</p>
+<p>Reference: “Learning Feature Sparse Principal Subspace” (Yamada et al., ICML 2020)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.STGLayer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/selectors.html#STGLayer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.STGLayer.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.STGLayer.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#STGLayer.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.STGLayer.forward" title="Link to this definition"></a></dt>
+<dd><p>Apply stochastic gates to input features.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.STGLayer.regularization_loss">
+<span class="sig-name descname"><span class="pre">regularization_loss</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#STGLayer.regularization_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.STGLayer.regularization_loss" title="Link to this definition"></a></dt>
+<dd><p>Compute regularization: sum of probabilities of selection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.STGLayer.get_selection_probs">
+<span class="sig-name descname"><span class="pre">get_selection_probs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#STGLayer.get_selection_probs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.STGLayer.get_selection_probs" title="Link to this definition"></a></dt>
+<dd><p>Get selection probabilities for each feature.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="SToG.selectors.STELayer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SToG.selectors.</span></span><span class="sig-name descname"><span class="pre">STELayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/selectors.html#STELayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.STELayer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="SToG.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseFeatureSelector</span></code></a></p>
+<p>Straight-Through Estimator for feature selection.
+Uses binary gates with gradient flow through sigmoid.</p>
+<p>Reference: “Estimating or Propagating Gradients Through Stochastic
+Neurons for Conditional Computation” (Bengio et al., 2013)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.STELayer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/selectors.html#STELayer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.STELayer.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.STELayer.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#STELayer.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.STELayer.forward" title="Link to this definition"></a></dt>
+<dd><p>Apply straight-through gates to input features.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.STELayer.regularization_loss">
+<span class="sig-name descname"><span class="pre">regularization_loss</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#STELayer.regularization_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.STELayer.regularization_loss" title="Link to this definition"></a></dt>
+<dd><p>Compute regularization: sum of selection probabilities.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.STELayer.get_selection_probs">
+<span class="sig-name descname"><span class="pre">get_selection_probs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#STELayer.get_selection_probs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.STELayer.get_selection_probs" title="Link to this definition"></a></dt>
+<dd><p>Get selection probabilities for each feature.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="SToG.selectors.GumbelLayer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SToG.selectors.</span></span><span class="sig-name descname"><span class="pre">GumbelLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/selectors.html#GumbelLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.GumbelLayer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="SToG.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseFeatureSelector</span></code></a></p>
+<p>Gumbel-Softmax based feature selector.
+Uses categorical distribution over {off, on} for each feature.</p>
+<p>Reference: “Categorical Reparameterization with Gumbel-Softmax”
+(Jang et al., ICLR 2017)</p>
+<p>Fixed implementation: Properly handles batch dimension and sampling.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.GumbelLayer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/selectors.html#GumbelLayer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.GumbelLayer.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.GumbelLayer.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#GumbelLayer.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.GumbelLayer.forward" title="Link to this definition"></a></dt>
+<dd><p>Apply Gumbel-Softmax gates to input features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – Input tensor of shape [batch_size, input_dim]</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Gated input tensor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.GumbelLayer.regularization_loss">
+<span class="sig-name descname"><span class="pre">regularization_loss</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#GumbelLayer.regularization_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.GumbelLayer.regularization_loss" title="Link to this definition"></a></dt>
+<dd><p>Compute regularization: sum of “on” state probabilities.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.GumbelLayer.get_selection_probs">
+<span class="sig-name descname"><span class="pre">get_selection_probs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#GumbelLayer.get_selection_probs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.GumbelLayer.get_selection_probs" title="Link to this definition"></a></dt>
+<dd><p>Get selection probabilities for each feature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.GumbelLayer.set_temperature">
+<span class="sig-name descname"><span class="pre">set_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/selectors.html#GumbelLayer.set_temperature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.GumbelLayer.set_temperature" title="Link to this definition"></a></dt>
+<dd><p>Update temperature for annealing schedule.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="SToG.selectors.CorrelatedSTGLayer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SToG.selectors.</span></span><span class="sig-name descname"><span class="pre">CorrelatedSTGLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_penalty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/selectors.html#CorrelatedSTGLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.CorrelatedSTGLayer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="SToG.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseFeatureSelector</span></code></a></p>
+<p>STG with explicit handling of correlated features.
+Based on “Adaptive Group Sparse Regularization for Deep Neural Networks”.
+Uses group structure to handle feature correlation.</p>
+<p>Reference: “Adaptive Group Sparse Regularization for Deep Neural Networks”</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.CorrelatedSTGLayer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_penalty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/selectors.html#CorrelatedSTGLayer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.CorrelatedSTGLayer.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.CorrelatedSTGLayer.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#CorrelatedSTGLayer.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.CorrelatedSTGLayer.forward" title="Link to this definition"></a></dt>
+<dd><p>Apply correlated stochastic gates to input features.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.CorrelatedSTGLayer.regularization_loss">
+<span class="sig-name descname"><span class="pre">regularization_loss</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#CorrelatedSTGLayer.regularization_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.CorrelatedSTGLayer.regularization_loss" title="Link to this definition"></a></dt>
+<dd><p>Compute regularization with correlation penalty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.CorrelatedSTGLayer.get_selection_probs">
+<span class="sig-name descname"><span class="pre">get_selection_probs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#CorrelatedSTGLayer.get_selection_probs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.CorrelatedSTGLayer.get_selection_probs" title="Link to this definition"></a></dt>
+<dd><p>Get selection probabilities for each feature.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="SToG.selectors.L1Layer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SToG.selectors.</span></span><span class="sig-name descname"><span class="pre">L1Layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/selectors.html#L1Layer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.L1Layer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="SToG.base.html#SToG.base.BaseFeatureSelector" title="SToG.base.BaseFeatureSelector"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseFeatureSelector</span></code></a></p>
+<p>L1 regularization on input layer weights.
+Baseline comparison method for feature selection.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.L1Layer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/SToG/selectors.html#L1Layer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.L1Layer.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.L1Layer.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#L1Layer.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.L1Layer.forward" title="Link to this definition"></a></dt>
+<dd><p>Apply L1 weights to input features.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.L1Layer.regularization_loss">
+<span class="sig-name descname"><span class="pre">regularization_loss</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#L1Layer.regularization_loss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.L1Layer.regularization_loss" title="Link to this definition"></a></dt>
+<dd><p>Compute L1 regularization: sum of absolute weights.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.L1Layer.get_selection_probs">
+<span class="sig-name descname"><span class="pre">get_selection_probs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.9)"><span class="pre">Tensor</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#L1Layer.get_selection_probs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.L1Layer.get_selection_probs" title="Link to this definition"></a></dt>
+<dd><p>Get feature importance (absolute weights).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SToG.selectors.L1Layer.get_selected_features">
+<span class="sig-name descname"><span class="pre">get_selected_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../../_modules/SToG/selectors.html#L1Layer.get_selected_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#SToG.selectors.L1Layer.get_selected_features" title="Link to this definition"></a></dt>
+<dd><p>Get selected features based on weight magnitude.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, MIPT Intelligent Systems.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
