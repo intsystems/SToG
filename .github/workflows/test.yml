@@ -27,4 +27,4 @@ jobs:
 
       - name: Testing
         run: |
-          pytest test/ --cov=mylib --cov-report=xml  # без PYTHONPATH
+          pytest test/ --cov=SToG --cov-report=xml
