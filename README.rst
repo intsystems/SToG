@@ -33,6 +33,7 @@ Quick Links
 *   `Installation Guide <https://intsystems.github.io/SToG/installation.html>`_
 *   `Quick Start <https://intsystems.github.io/SToG/quick_start.html>`_
 *   `API Reference <https://intsystems.github.io/SToG/api/index.html>`_
+*   `Blogpost <https://rubtsov-bmm-course.hashnode.dev/stog-library>`_
 
 Installation
 ------------
