@@ -17,7 +17,7 @@ class STGLayer(BaseFeatureSelector):
     
     def __init__(self, input_dim: int, sigma: float = 0.5, device: str = 'cpu'):
         super().__init__(input_dim, device)
-        self.mu = nn.Parameter(torch.zeros(input_dim))
+        self.mu = nn.Parameter(torch.ones(input_dim) * 0.5)
         self.sigma = sigma
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
